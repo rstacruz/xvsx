@@ -47,3 +47,38 @@ instance = new Shape();
       this.width = width;
       this.height = height;
     };
+
+Arrays
+------
+
+### Initializing (empty)
+
+    list = [];
+
+### Initializing (with contents)
+
+    list = ["a", "b", "c"];
+
+### Length
+
+    list.length      //=> 3
+
+### Adding items
+
+    list.push("d");
+    // list == ["a", "b", "c", "d"]
+
+    list.unshift("X");
+    // list == ["X", "a", "b", "c", "d"]
+
+### Removing items
+
+    list.pop()    //=> "d" (last item)
+    // list == ["X", "a", "b", "c"]
+
+    list.shift()  //=> "X" (first item)
+    // list == ["a", "b", "c"]
+
+### Checking for presence of items
+
+    if ([1, 2, 3].indexOf(2) > -1) { ... }

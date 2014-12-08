@@ -58,3 +58,40 @@ class Shape
   end
 ```
 
+Arrays
+------
+
+### Initializing (empty)
+
+    list = Array.new
+
+### Initializing (with contents)
+
+    list = ["a", "b", "c"]
+    arr = %w[red green blue]
+
+### Length
+
+    list.size      #=> 3
+    list.empty?
+    list.any?
+
+### Adding items
+
+    list << "d"
+    list                #=> ["a", "b", "c", "d"]
+
+    list.unshift "X"
+    list                #=> ["X", "a", "b", "c", "d"]
+
+### Removing items
+
+    list.pop      #=> "d" (last item)
+    list          #=> ["X", "a", "b", "c"]
+
+    list.shift    #=> "X" (first item)
+    list          #=> ["a", "b", "c"]
+
+### Checking for presence of items
+
+    if [1, 2, 3].include?(2)
