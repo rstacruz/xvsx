@@ -43,6 +43,7 @@ instance = Shape.new
 class Shape
   def initialize(width, height)
   end
+end
 ```
 
 ### Attributes

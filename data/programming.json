@@ -6,6 +6,26 @@
     "---"
   ],
   "languages": {
+    "_outline": {
+      "Variables": {
+        "Local variables": {},
+        "Global variables": {}
+      },
+      "Classes": {
+        "Defining classes": {},
+        "Basic instanciation": {},
+        "Constructors": {},
+        "Attributes": {}
+      },
+      "Arrays": {
+        "Initializing (empty)": {},
+        "Initializing (with contents)": {},
+        "Length": {},
+        "Adding items": {},
+        "Removing items": {},
+        "Checking for presence of items": {}
+      }
+    },
     "javascript": {
       "Variables": {
         "Local variables": {
@@ -23,37 +43,29 @@
           "code": "function Shape() {\n  return this;\n}\n\nShape.prototype.area = function () {\n  return this.width * this.height;\n};"
         },
         "Basic instanciation": {
-          "text": null,
           "code": "instance = new Shape();"
         },
         "Attributes": {
-          "text": null,
           "code": "function Shape() {\n}\n\nShape.prototype.setDimensions = function(width, height) {\n  this.width = width;\n  this.height = height;\n};"
         }
       },
       "Arrays": {
         "Initializing (empty)": {
-          "text": null,
           "code": "list = [];"
         },
         "Initializing (with contents)": {
-          "text": null,
           "code": "list = [\"a\", \"b\", \"c\"];"
         },
         "Length": {
-          "text": null,
           "code": "list.length      //=> 3"
         },
         "Adding items": {
-          "text": null,
           "code": "list.push(\"d\");\n// list == [\"a\", \"b\", \"c\", \"d\"]\n\nlist.unshift(\"X\");\n// list == [\"X\", \"a\", \"b\", \"c\", \"d\"]"
         },
         "Removing items": {
-          "text": null,
           "code": "list.pop()    //=> \"d\" (last item)\n// list == [\"X\", \"a\", \"b\", \"c\"]\n\nlist.shift()  //=> \"X\" (first item)\n// list == [\"a\", \"b\", \"c\"]"
         },
         "Checking for presence of items": {
-          "text": null,
           "code": "if ([1, 2, 3].indexOf(2) > -1) { ... }"
         }
       }
@@ -61,7 +73,6 @@
     "ruby": {
       "Variables": {
         "Local variables": {
-          "text": null,
           "code": "myvar = 1\nmyvar"
         },
         "Global variables": {
@@ -71,68 +82,38 @@
       },
       "Classes": {
         "Defining classes": {
-          "text": null,
           "code": "class Shape\n  def area\n    width * height\n  end\nend"
         },
         "Basic instanciation": {
-          "text": null,
           "code": "instance = Shape.new"
         },
         "Constructors": {
-          "text": null,
-          "code": "class Shape\n  def initialize(width, height)\n  end"
+          "code": "class Shape\n  def initialize(width, height)\n  end\nend"
         },
         "Attributes": {
-          "text": null,
           "code": "class Shape\n  attr_accessor :width\n  attr_accessor :height\n\n  def set_dimensions(width, height)\n    self.width = width\n    self.height = height\n  end"
         }
       },
       "Arrays": {
         "Initializing (empty)": {
-          "text": null,
           "code": "list = Array.new"
         },
         "Initializing (with contents)": {
-          "text": null,
           "code": "list = [\"a\", \"b\", \"c\"]\narr = %w[red green blue]"
         },
         "Length": {
-          "text": null,
           "code": "list.size      #=> 3\nlist.empty?\nlist.any?"
         },
         "Adding items": {
-          "text": null,
           "code": "list << \"d\"\nlist                #=> [\"a\", \"b\", \"c\", \"d\"]\n\nlist.unshift \"X\"\nlist                #=> [\"X\", \"a\", \"b\", \"c\", \"d\"]"
         },
         "Removing items": {
-          "text": null,
           "code": "list.pop      #=> \"d\" (last item)\nlist          #=> [\"X\", \"a\", \"b\", \"c\"]\n\nlist.shift    #=> \"X\" (first item)\nlist          #=> [\"a\", \"b\", \"c\"]"
         },
         "Checking for presence of items": {
-          "text": null,
           "code": "if [1, 2, 3].include?(2)"
         }
       }
-    }
-  },
-  "outline": {
-    "Variables": {
-      "Local variables": {},
-      "Global variables": {}
-    },
-    "Classes": {
-      "Defining classes": {},
-      "Basic instanciation": {},
-      "Constructors": {},
-      "Attributes": {}
-    },
-    "Arrays": {
-      "Initializing (empty)": {},
-      "Initializing (with contents)": {},
-      "Length": {},
-      "Adding items": {},
-      "Removing items": {},
-      "Checking for presence of items": {}
     }
   }
 }
