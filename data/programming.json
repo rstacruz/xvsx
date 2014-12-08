@@ -1,0 +1,58 @@
+{
+  "javascript": {
+    "Variables": {
+      "Local variables": {
+        "text": "Use `var` to define local variables.",
+        "code": "var myvar = 1;\nmyvar"
+      },
+      "Global variables": {
+        "text": "The global context is in `window` (browser) or `global` (Node.js).",
+        "code": "window.gvar = 1;"
+      }
+    },
+    "Classes": {
+      "Defining classes": {
+        "text": "JavaScript doesn't have classes, it has prototypes.",
+        "code": "function Shape() {\n  return this;\n}\n\nShape.prototype.area = function () {\n  return this.width * this.height;\n};"
+      },
+      "Basic instanciation": {
+        "text": null,
+        "code": "instance = new Shape();"
+      },
+      "Attributes": {
+        "text": null,
+        "code": "function Shape() {\n}\n\nShape.prototype.setDimensions = function(width, height) {\n  this.width = width;\n  this.height = height;\n};"
+      }
+    }
+  },
+  "ruby": {
+    "Variables": {
+      "Local variables": {
+        "text": null,
+        "code": "myvar = 1\nmyvar"
+      },
+      "Global variables": {
+        "text": "Global variables are prefixed with `$`.\n\n[Read](http://www.rubyist.net/~slagell/ruby/globalvars.html)",
+        "code": "$gvar = 1"
+      }
+    },
+    "Classes": {
+      "Defining classes": {
+        "text": null,
+        "code": "class Shape\n  def area\n    width * height\n  end\nend"
+      },
+      "Basic instanciation": {
+        "text": null,
+        "code": "instance = Shape.new"
+      },
+      "Constructors": {
+        "text": null,
+        "code": "class Shape\n  def initialize(width, height)\n  end"
+      },
+      "Attributes": {
+        "text": null,
+        "code": "class Shape\n  attr_accessor :width\n  attr_accessor :height\n\n  def set_dimensions(width, height)\n    self.width = width\n    self.height = height\n  end"
+      }
+    }
+  }
+}
