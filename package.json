@@ -14,6 +14,9 @@
     "mocha-clean": "^0.4.0"
   },
   "dependencies": {
-    "marked": "^0.3.2"
+    "browserify": "^7.0.0",
+    "jquery": "^2.1.1",
+    "marked": "^0.3.2",
+    "ractive": "^0.6.1"
   }
 }
