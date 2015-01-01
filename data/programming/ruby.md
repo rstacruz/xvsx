@@ -1,6 +1,5 @@
-# Ruby
-
-## Variables
+Variables
+---------
 
 ### Local variables
 
@@ -11,53 +10,43 @@ myvar
 
 ### Global variables
 
-Global variables are prefixed with `$`.
+Global variables are prefixed with `$`. [docs](http://www.rubyist.net/~slagell/ruby/globalvars.html)
 
-[Read](http://www.rubyist.net/~slagell/ruby/globalvars.html)
+    $gvar = 1
 
-```rb
-$gvar = 1
-```
-
-## Classes
+Classes
+-------
 
 ### Defining classes
 
-```rb
-class Shape
-  def area
-    width * height
-  end
-end
-```
+    class Shape
+      def area
+        width * height
+      end
+    end
 
 ### Basic instanciation
 
-```rb
-instance = Shape.new
-```
+    instance = Shape.new
 
 ### Constructors
 
-```rb
-class Shape
-  def initialize(width, height)
-  end
-end
-```
+    class Shape
+      def initialize(width, height)
+      end
+    end
 
 ### Attributes
 
-```rb
-class Shape
-  attr_accessor :width
-  attr_accessor :height
+    class Shape
+      attr_accessor :width
+      attr_accessor :height
 
-  def set_dimensions(width, height)
-    self.width = width
-    self.height = height
-  end
-```
+      def set_dimensions(width, height)
+        self.width = width
+        self.height = height
+      end
+    end
 
 Arrays
 ------
