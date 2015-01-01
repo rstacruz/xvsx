@@ -1,24 +1,24 @@
 /* jshint sub: true */
 var expect = require('chai').expect;
-
-var output, src;
+var outlinify = require('../lib/bundle').outlinify;
 
 describe('bundle.outlinify', function () {
-  var h2, h3;
-  var outlinify = require('../lib/bundle').outlinify;
+  var h2, h3, src, output;
 
   it('is a function', function () {
     expect(outlinify).to.be.a('function');
   });
 
-  src = [
-    "# js",
-    "## Variables",
-    "### Defining variables",
-    "    var x = 1",
-    "",
-    "Yes it works"
-  ].join("\n");
+  before(function () {
+    src = [
+      "# js",
+      "## Variables",
+      "### Defining variables",
+      "    var x = 1",
+      "",
+      "Yes it works"
+    ].join("\n");
+  });
 
   beforeEach(function () {
     output = outlinify(src);
