@@ -1,6 +1,8 @@
 var jQuery = require('jquery');
+var $ = jQuery;
 var Ractive = require('ractive');
 
-$.ajax('data/programming.json', function (data) {
+$.get('programming.json')
+.then(function (data) {
   console.log(data);
 });

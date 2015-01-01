@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "build": "make",
-    "start": "echo TODO"
+    "start": "make && serve public",
+    "watch": "find src data | entr make & serve public"
   },
   "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
   "license": "MIT",

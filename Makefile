@@ -16,9 +16,9 @@ public/%.html: src/%.html
 	#        copy  $@
 	@mkdir -p public
 	@cp $^ $@
-public/%.js: lib/%.js
+public/%.js: src/%.js
 	#  browserify  $@
 	@mkdir -p public
 	@$(browserify) $^ > $@
 
-.PHONY: data assets
+.PHONY: data assets all
