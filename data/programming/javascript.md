@@ -38,10 +38,11 @@ JavaScript doesn't have classes, it has prototypes.
     function Shape() {
     }
 
-    Shape.prototype.setDimensions = function(width, height) {
-      this.width = width;
-      this.height = height;
-    };
+    Shape.prototype.setDimensions =
+      function(width, height) {
+        this.width = width;
+        this.height = height;
+      };
 
 Arrays
 ------
@@ -56,7 +57,7 @@ Arrays
 
 ### Length
 
-    list.length      //=> 3
+    list.length //=> 3
 
 ### Adding items
 

@@ -69,18 +69,18 @@ Arrays
 ### Adding items
 
     list << "d"
-    list                #=> ["a", "b", "c", "d"]
+    # ["a", "b", "c", "d"]
 
     list.unshift "X"
-    list                #=> ["X", "a", "b", "c", "d"]
+    # ["X", "a", "b", "c", "d"]
 
 ### Removing items
 
-    list.pop      #=> "d" (last item)
-    list          #=> ["X", "a", "b", "c"]
+    list.pop     #=> "d" (last item)
+    list         #=> ["X", "a", "b", "c"]
 
-    list.shift    #=> "X" (first item)
-    list          #=> ["a", "b", "c"]
+    list.shift   #=> "X" (first item)
+    list         #=> ["a", "b", "c"]
 
 ### Checking for presence of items
 

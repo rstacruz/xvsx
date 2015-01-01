@@ -1,9 +1,8 @@
-<div>
+<div on-click="lol">
   {{#work(data, languages)}}
     <table>
       <thead>
         <tr>
-          <th></th>
           {{#languages}}
             <th>{{id}}</th>
           {{/}}
@@ -11,14 +10,16 @@
       </thead>
 
       {{#sections}}
-        <tr class='section'>
+        <tr class='section-head'>
           <th class='level-2' colspan='10'>{{title}}</th>
         </tr>
 
         {{#subsections}}
-          <tr class='article'>
-            <th>{{title}}</th>
+          <tr class='article-head'>
+            <th class='level-3' colspan='10'>{{title}}</th>
+          </tr>
 
+          <tr class='article'>
             {{#languages}}
               <td>
                 {{#code}}
