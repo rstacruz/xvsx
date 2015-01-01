@@ -1,3 +1,7 @@
+### Editing content
+
+Edit stuff in `data/` and run `make` afterwards
+
 ### Dev setup
 
     npm test

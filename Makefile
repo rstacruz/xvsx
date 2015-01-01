@@ -1,4 +1,5 @@
-browserify := ./node_modules/.bin/browserify
+browserify_bin := ./node_modules/.bin/browserify
+browserify := $(browserify_bin) -t [ ractivate -x .html ]
 programming_files := $(wildcard data/programming/*.md)
 asset_files := $(patsubst src/%, public/%, $(wildcard src/*))
 
