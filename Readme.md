@@ -1,9 +1,6 @@
-Output:
+### Dev setup
 
-```yaml
-JavaScript:
-  Variables:
-    Local variables:
-      text: "Use `var` to define..."
-      code: "var myvar = 1"
-```
+    npm test
+    npm run watch
+
+Requires entr (`brew install entr`)
