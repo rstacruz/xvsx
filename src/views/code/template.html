@@ -1,0 +1,42 @@
+<div>
+  {{#work(data, languages)}}
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          {{#languages}}
+            <th>{{id}}</th>
+          {{/}}
+        </tr>
+      </thead>
+
+      {{#sections}}
+        <tr class='section'>
+          <th class='level-2' colspan='10'>{{title}}</th>
+        </tr>
+
+        {{#subsections}}
+          <tr class='article'>
+            <th>{{title}}</th>
+
+            {{#languages}}
+              <td>
+                {{#code}}
+                  <pre>{{code}}</pre>
+                {{/}}
+
+                {{#text}}
+                  <div class='text'>
+                    {{{text}}}
+                  </div>
+                {{/}}
+              </td>
+            {{/}}
+          </tr>
+
+        {{/}}
+
+      {{/}}
+    </table>
+  {{/}}
+</div>

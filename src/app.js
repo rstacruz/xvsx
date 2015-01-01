@@ -1,8 +1,16 @@
-var jQuery = require('jquery');
-var $ = jQuery;
-var Ractive = require('ractive');
+(function () {
 
-$.get('programming.json')
-.then(function (data) {
-  console.log(data);
-});
+  var CodeView = require('./views/code');
+
+  $.get('programming.json')
+  .then(function (data) {
+    var view = new CodeView({
+      el: document.body,
+      data: {
+        languages: ['ruby', 'javascript'],
+        data: data
+      },
+    });
+  });
+
+})();

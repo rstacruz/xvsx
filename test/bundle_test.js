@@ -46,6 +46,6 @@ describe('bundle.outlinify', function () {
   });
 
   it('exports h3 text', function () {
-    expect(h3.text).eql('Yes it works');
+    expect(h3.text).eql('<p>Yes it works</p>\n');
   });
 });
