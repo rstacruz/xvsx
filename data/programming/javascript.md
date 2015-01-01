@@ -34,9 +34,7 @@ JavaScript doesn't have classes, it has prototypes.
 
 ### Basic instanciation
 
-```js
-instance = new Shape();
-```
+    instance = new Shape();
 
 ### Attributes
 
