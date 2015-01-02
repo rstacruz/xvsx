@@ -50,6 +50,10 @@ module.exports = function (data, languages) {
   return re;
 };
 
+/*
+ * Map helper that works with objects
+ */
+
 function map (obj, fn) {
   return Object.keys(obj).map(function (key) {
     var val = obj[key];
