@@ -4,6 +4,9 @@ browserify := $(browserify_bin) -t [ ractivate -x .html ]
 stylus_bin := ./node_modules/.bin/stylus
 stylus := $(stylus_bin) -u nib
 
+uglify_bin := ./node_modules/.bin/uglifyjs
+uglify := $(uglify_bin) -m
+
 programming_files := $(wildcard data/programming/*.md)
 asset_files := public/index.html public/style.css public/app.js
 
@@ -29,7 +32,7 @@ public/%.css: src/%.styl
 public/%.js: src/%.js
 	#  browserify  $@
 	@mkdir -p public
-	@$(browserify) $< > $@
+	@$(browserify) $< | $(uglify) > $@
 # force rebuild
 public/app.js: src/app.js $(shell find src -type f)
 

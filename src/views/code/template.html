@@ -22,6 +22,10 @@
           <tr class='article'>
             {{#languages}}
               <td>
+                {{#(!code && !text)}}
+                  &mdash;
+                {{/}}
+
                 {{#code}}
                   <pre>{{code}}</pre>
                 {{/}}

@@ -25,3 +25,10 @@ Arrays
 ### Adding items
 ### Removing items
 ### Checking for presence of items
+
+Types
+-----
+
+### Primitives
+### Type checking
+### Casting

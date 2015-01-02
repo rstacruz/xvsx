@@ -22,7 +22,6 @@ Classes
 JavaScript doesn't have classes, it has prototypes.
 
     function Shape() {
-      return this;
     }
 
     Shape.prototype.area = function () {
@@ -32,6 +31,12 @@ JavaScript doesn't have classes, it has prototypes.
 ### Basic instanciation
 
     instance = new Shape();
+
+### Constructors
+
+    function Shape() {
+      // code here
+    }
 
 ### Attributes
 
@@ -78,3 +83,29 @@ Arrays
 ### Checking for presence of items
 
     if ([1, 2, 3].indexOf(2) > -1) { ... }
+
+Types
+-----
+
+### Primitives
+
+    Number
+    Array
+    Boolean
+    Date
+    String
+    RegExp
+
+### Type checking
+
+    if (typeof obj === 'string')
+    // also: object, function, undefined
+
+    if (Array.isArray(obj))
+
+### Casting
+
+    parseInt("10")
+    parseFloat("3.14")
+    String(obj)
+    Number(obj)

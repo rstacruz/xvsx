@@ -32,7 +32,8 @@ Classes
 ### Constructors
 
     class Shape
-      def initialize(width, height)
+      def initialize
+        # code here
       end
     end
 
@@ -85,3 +86,26 @@ Arrays
 ### Checking for presence of items
 
     if [1, 2, 3].include?(2)
+
+Types
+-----
+
+### Primitives
+
+    Fixnum
+    Bignum
+    String
+    Integer
+    Time
+    RegExp
+    Symbol
+
+### Type checking
+
+    if obj.is_a? Fixnum
+
+### Casting
+
+    obj.to_s
+    obj.to_i
+    obj.to_f

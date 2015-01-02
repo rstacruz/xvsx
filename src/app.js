@@ -2,15 +2,18 @@
 
   var CodeView = require('./views/code');
 
-  $.get('programming.json')
-  .then(function (data) {
-    var view = new CodeView({
-      el: document.body,
-      data: {
-        languages: ['ruby', 'javascript'],
-        data: data
-      },
+  console.log('start');
+
+  request
+    .get('programming.json')
+    .end(function (err, res) {
+      var view = new CodeView({
+        el: document.body,
+        data: {
+          languages: ['ruby', 'javascript'],
+          data: res.body
+        },
+      });
     });
-  });
 
 })();
