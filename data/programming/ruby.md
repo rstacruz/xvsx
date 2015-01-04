@@ -49,6 +49,20 @@ Classes
       end
     end
 
+### Inheritance
+
+    class Rectangle < Shape
+      def initialize
+        super
+        # other stuff here
+      end
+    end
+
+### Type checking
+
+    if instance.is_a?(ClassName)
+    if instance.kind_of?(ClassName)
+
 Arrays
 ------
 
@@ -77,10 +91,12 @@ Arrays
 
 ### Removing items
 
-    list.pop     #=> "d" (last item)
+    # last
+    list.pop     #=> "d"
     list         #=> ["X", "a", "b", "c"]
 
-    list.shift   #=> "X" (first item)
+    # first
+    list.shift   #=> "X"
     list         #=> ["a", "b", "c"]
 
 ### Checking for presence of items
@@ -109,3 +125,57 @@ Types
     obj.to_s
     obj.to_i
     obj.to_f
+
+Conditionals
+------------
+
+### If-then-else
+
+    if a == b
+      # ...
+    elsif b != c
+      # ...
+    else
+      # ...
+    end
+
+### Switch-case
+
+    case day
+      when "Monday"
+        work
+      when "Tuesday"
+      when "Wednesday"
+        train
+      else
+        sleep
+    end
+
+### And-or
+
+    if a && b
+    if c || d
+
+Numbers
+-------
+
+### Rounding off
+
+    (2.5).to_i    #=> 2
+    (2.5).floor   #=> 2
+    (2.5).ceil    #=> 3
+    (2.5).round   #=> 3
+
+### Minimum and maximum
+
+    [2, 4].min   #=> 2
+    [2, 4].max   #=> 4
+
+### Exponents
+
+    2**8   #=> 256
+
+### Trigonometry
+
+    Math.sin(theta)
+    Math::PI

@@ -49,6 +49,20 @@ JavaScript doesn't have classes, it has prototypes.
         this.height = height;
       };
 
+### Inheritance
+
+    function Rectangle() {
+      Shape.apply(this, arguments);
+      // other stuff here
+    }
+
+    Rectangle.prototype =
+      Object.create(Shape.prototype);
+
+### Type checking
+
+    if (obj instanceof ClassName)
+
 Arrays
 ------
 
@@ -67,22 +81,24 @@ Arrays
 ### Adding items
 
     list.push("d");
-    // list == ["a", "b", "c", "d"]
+    // ["a", "b", "c", "d"]
 
     list.unshift("X");
-    // list == ["X", "a", "b", "c", "d"]
+    // ["X", "a", "b", "c", "d"]
 
 ### Removing items
 
-    list.pop()    //=> "d" (last item)
-    // list == ["X", "a", "b", "c"]
+    // last
+    list.pop()    //=> "d"
+    list          //=> ["X", "a", "b", "c"]
 
-    list.shift()  //=> "X" (first item)
-    // list == ["a", "b", "c"]
+    // first
+    list.shift()  //=> "X"
+    list          //=> ["a", "b", "c"]
 
 ### Checking for presence of items
 
-    if ([1, 2, 3].indexOf(2) > -1) { ... }
+    if ([1, 2, 3].indexOf(2) > -1)
 
 Types
 -----
@@ -109,3 +125,62 @@ Types
     parseFloat("3.14")
     String(obj)
     Number(obj)
+
+Conditionals
+------------
+
+### If-then-else
+
+    if (a === b) {
+      // ...
+    } else if (b !== c) {
+      // ...
+    } else {
+      // ...
+    }
+
+### Switch-case
+
+    switch (day) {
+      case "Monday":
+        work();
+        break;
+
+      case "Tuesday":
+      case "Wednesday":
+        train();
+        break();
+
+      default:
+        sleep();
+    }
+
+### And-or
+
+    if (a && b)
+    if (c || d)
+
+Numbers
+-------
+
+### Rounding off
+
+    parseInt(2.5)       //=> 2
+    Math.floor(2.5)     //=> 2
+    Math.ceil(2.5)      //=> 3
+    Math.round(2.5)     //=> 3
+    (3.141).toFixed(2)  //=> 3.14
+
+### Minimum and maximum
+
+    Math.min(2, 4)   //=> 2
+    Math.max(2, 4)   //=> 4
+
+### Exponents
+
+    Math.pow(2, 8)   //=> 256
+
+### Trigonometry
+
+    Math.sin(theta)
+    Math.PI

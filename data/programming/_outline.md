@@ -15,6 +15,8 @@ Classes
 ### Basic instanciation
 ### Constructors
 ### Attributes
+### Inheritance
+### Type checking
 
 Arrays
 ------
@@ -32,3 +34,18 @@ Types
 ### Primitives
 ### Type checking
 ### Casting
+
+Conditionals
+------------
+
+### If-then-else
+### Switch-case
+### And-or
+
+Numbers
+-------
+
+### Rounding off
+### Minimum and maximum
+### Exponents
+### Trigonometry
