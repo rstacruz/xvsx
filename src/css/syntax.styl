@@ -3,25 +3,26 @@
  */
 
 .hljs
+  $c = #567
   &
-    color: #456
+    color: $c
 
   .hljs-keyword
-    // color: #345
+    color: $c + 50%
 
   .hljs-title
     font-weight: bold
-    // color: #345
+    color: $c
 
   .hljs-comment
     color: mix($slate, white, 75%)
-    font-style: italic
-    font-family: merriweather, serif
+    italic-type()
     letter-spacing: 1px
     font-size: 0.9em
 
   .hljs-symbol,
   .hljs-string,
-  .hljs-number
-    color: #1a8
+  .hljs-number,
+  .hljs-regexp
+    color: $accent2
 

@@ -3,57 +3,161 @@
  */
 
 .article
-  &
-    margin: 60px auto 40px auto
+  margin: 10px auto
+  width: 800px
 
-  td
-    width: 350px
+  table
+    table-layout: fixed
+    border-collapse: collapse
+    width: 100%
 
-  .article-head
-    margin: 0 0 20px 0
-    padding: 0
-    color: $accent
-    font-size: 1.25em
-    font-weight: 400
+  table, td, th, tr
     border-radius: 4px
 
-    &:before
-      ion-icon('chevron-down')
-      font-size: 12px
-      display: inline-block
-      margin-right: 15px
-      color: $accent
+  td, th
+    width: 400px
 
-      width: 24px
-      height: @width
-      line-height: @width + 1px
-      text-align: center
-      border: solid 2px $accent
-      border-radius: 50%
+  .article-languages
+    opacity: 0
+    transition: all 100ms linear
+    margin-top: -40px
 
-  // code
-  .code
-    background: white
+  &:hover .article-languages
+    opacity: 1
+
+/*
+ * head
+ */
+
+.article-head
+  margin: 0 0 20px 0
+  padding: 0
+  color: $accent
+  font-size: 1.25em
+  font-weight: 400
+  border-radius: 4px
+
+  &:before
+    ion-icon('chevron-down')
+    font-size: 12px
+    display: inline-block
+    margin-right: 15px
+    color: $accent
+
+    width: 24px
+    height: @width
+    line-height: @width + 1px
+    text-align: center
+    border: solid 2px $accent
+    border-radius: 50%
+
+/*
+ * code
+ */
+
+.article-code
+  &
+    background: rgba(white, 0.6)
+    border-radius: 4px
+    box-shadow: 1px 1px 0 rgba($line, 0.8), 1px 1px 2px rgba($line, 0.2)
+
+  td
     padding: 30px
     padding-right: 50px
-    border-right: solid 1px $line
-    border-bottom: solid 1px $line
-    height: 100%
 
-  td:first-child .code
-    border-top-left-radius: 4px
-    border-bottom-left-radius: 4px
+  td:first-child
+    background: white
+    border-right: solid 1px rgba($line, 0.1)
 
-  td:last-child .code
-    border-top-right-radius: 4px
-    border-bottom-right-radius: 4px
+  td.empty
+    vertical-align: middle
 
-  // text
-  .text
-    color: $slate
+  span.nil:before
+    display: block
+    ion-icon('close-round')
+    font-size: 32px
+    color: $bg - 2%
+    text-align: center
+
+/*
+ * text
+ */
+
+.article-text
+  &
+    color: $slate + 40%
     font-size: 0.9em
+    margin-top: 15px
 
-  .text a
-    color: $xblack
+  p
+    margin: 0
+    padding: 0
+    padding-left: 0px
+    padding-bottom: 20px
+
+    &:before
+      content: ''
+      display: inline-block
+      width: 15px
+      height: 2px
+      vertical-align: middle
+      background: $slate
+      margin-right: 15px
+      opacity: 0.25
+
+  code, a
+    italic-type()
+    color: $slate - 40%
+
+  a
     text-decoration: none
+    box-shadow: inset 0 -3px rgba($accent2, 0.1)
+    padding: 1px 0
 
+  a:hover
+    color: #000
+
+
+//   a
+//     color: $slate - 40%
+//     text-decoration: none
+//     background: rgba($slate, 0.1)
+//     padding: 1px 5px
+//     border-radius: 2px
+//     margin: 0 4px
+
+
+/*
+ * lang
+ */
+
+.article-languages
+  h4
+    font-weight: normal
+    color: $slate
+    font-size: 0.8em
+    position: relative
+
+    margin: 10px 0
+    padding: 0
+    text-align: right
+
+  h4:after
+    content: ''
+    display: block
+    position: absolute
+    left: 0
+    top: 50%
+    width: 100%
+    height: 2px
+    background: rgba($accent, 0.10)
+    border-radius: 2px
+    opacity: 0
+
+  span
+    display: inline
+    background: white
+    padding: 0 15px
+    position: relative
+    z-index: 1
+    margin-left: 15px

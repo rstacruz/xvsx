@@ -3,10 +3,7 @@ Variables
 
 ### Local variables
 
-Use `var` to define local variables.
-
     var myvar = 1;
-    myvar
 
 ### Global variables
 
@@ -76,7 +73,7 @@ Arrays
 
 ### Length
 
-    list.length //=> 3
+    list.length
 
 ### Adding items
 
@@ -111,6 +108,16 @@ Types
     Date
     String
     RegExp
+
+### Booleans
+
+    true
+    false
+
+### Null
+
+    null
+    undefined
 
 ### Type checking
 
@@ -165,22 +172,112 @@ Numbers
 
 ### Rounding off
 
-    parseInt(2.5)       //=> 2
-    Math.floor(2.5)     //=> 2
-    Math.ceil(2.5)      //=> 3
-    Math.round(2.5)     //=> 3
-    (3.141).toFixed(2)  //=> 3.14
+    parseInt(2.5)       // 2
+    Math.floor(2.5)     // 2
+    Math.ceil(2.5)      // 3
+    Math.round(2.5)     // 3
+    (3.141).toFixed(2)  // 3.14
 
 ### Minimum and maximum
 
-    Math.min(2, 4)   //=> 2
-    Math.max(2, 4)   //=> 4
+    Math.min(2, 4)   // 2
+    Math.max(2, 4)   // 4
 
 ### Exponents
 
-    Math.pow(2, 8)   //=> 256
+    Math.pow(2, 8)   // 256
 
 ### Trigonometry
 
     Math.sin(theta)
     Math.PI
+
+Strings
+-------
+
+### Literals
+
+    "hello"
+    'world'
+
+### Length
+
+    "Hello".length
+
+### Substring
+
+    "Hi world".substr(0, 2)  // "Hi"
+    "Hi world".substr(6)     // "world"
+    "Hi world".substr(3, 2)  // "wo"
+
+### Search
+
+    "Hello".indexOf("o")  // 4
+    "Hello".indexOf("x")  // -1
+
+### Case
+
+    "Hello".toUpperCase()
+    "Hello".toLowerCase()
+
+### Replace
+
+    "Hello".replace(/o/g, "a")  // "Hella"
+
+Hash tables
+-----------
+
+### Type
+
+    Object
+
+### Literals
+
+    colors = {
+      apple: "red",
+      grape: "purple"
+    };
+
+### Access
+
+    colors["banana"] = "yellow";
+    colors.banana = "yellow";
+
+### List keys
+
+    Object.keys(colors)
+
+### Iterating
+
+    for (var key in colors) {
+      if (colors.hasOwnProperty(key)) {
+        var val = colors[key];
+        // ...
+      }
+    }
+
+Be sure to always check
+[hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty).
+
+File API
+--------
+
+### Require
+
+    var fs = require('fs');
+
+### Reading
+
+    d = fs.readFileSync('file.txt', 'utf-8')
+
+    // Asynchronous:
+    fs.readFile('file.txt', 'utf-8',
+      function(err, data) { /* ... */ });
+
+### Writing
+
+    fs.writeFileSync('file.txt', 'utf-8', data);
+
+    // Asynchronous:
+    fs.writeFile('file.txt', 'utf-8', data,
+      function(err) { /* ... */ });

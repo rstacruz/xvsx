@@ -3,16 +3,17 @@ Variables
 
 ### Local variables
 
-```rb
-myvar = 1
-myvar
-```
+    myvar = 1
 
 ### Global variables
 
-Global variables are prefixed with `$`. [docs](http://www.rubyist.net/~slagell/ruby/globalvars.html)
+See: [Global variables](http://www.rubyist.net/~slagell/ruby/globalvars.html).
 
     $gvar = 1
+
+### Safe assignment
+
+    myvar ||= 1
 
 Classes
 -------
@@ -49,6 +50,8 @@ Classes
       end
     end
 
+See: [Accessors](http://www.rubyist.net/~slagell/ruby/accessors.html). Also: `attr_reader` and `attr_writer`.
+
 ### Inheritance
 
     class Rectangle < Shape
@@ -68,16 +71,21 @@ Arrays
 
 ### Initializing (empty)
 
-    list = Array.new
+    list = []
 
 ### Initializing (with contents)
 
     list = ["a", "b", "c"]
-    arr = %w[red green blue]
+
+### Shorthand
+
+    %w[red blue]  # [ "red", "blue" ]
+    %I[red blue]  # [ :red, :blue ]
 
 ### Length
 
-    list.size      #=> 3
+    list.size
+
     list.empty?
     list.any?
 
@@ -92,12 +100,12 @@ Arrays
 ### Removing items
 
     # last
-    list.pop     #=> "d"
-    list         #=> ["X", "a", "b", "c"]
+    list.pop     # "d"
+    list         # ["X", "a", "b", "c"]
 
     # first
-    list.shift   #=> "X"
-    list         #=> ["a", "b", "c"]
+    list.shift   # "X"
+    list         # ["a", "b", "c"]
 
 ### Checking for presence of items
 
@@ -115,6 +123,15 @@ Types
     Time
     RegExp
     Symbol
+
+### Booleans
+
+    true
+    false
+
+### Null
+
+    nil
 
 ### Type checking
 
@@ -139,6 +156,16 @@ Conditionals
       # ...
     end
 
+### Negative
+
+    unless list.empty?
+      # ...
+    end
+
+### Postfix syntax
+
+    return if a == b
+
 ### Switch-case
 
     case day
@@ -161,21 +188,117 @@ Numbers
 
 ### Rounding off
 
-    (2.5).to_i    #=> 2
-    (2.5).floor   #=> 2
-    (2.5).ceil    #=> 3
-    (2.5).round   #=> 3
+    (2.5).to_i    # 2
+    (2.5).floor   # 2
+    (2.5).ceil    # 3
+    (2.5).round   # 3
 
 ### Minimum and maximum
 
-    [2, 4].min   #=> 2
-    [2, 4].max   #=> 4
+    [2, 4].min   # 2
+    [2, 4].max   # 4
 
 ### Exponents
 
-    2**8   #=> 256
+    2**8   # 256
 
 ### Trigonometry
 
     Math.sin(theta)
     Math::PI
+
+Strings
+-------
+
+### Literals
+
+    "hello"
+    'world'
+    %[hello]
+
+### Symbols
+
+    :hello
+
+### Length
+
+    "Hello".size
+
+### Substring
+
+    "Hi world"[0...2]  # "Hi"
+    "Hi world"[6..-1]  # "world"
+    "Hi world"[3..5]   # "wo"
+
+### Search
+
+    "Hello".index("o")  # 4
+    "Hello".index("x")  # nil
+
+    "Hello".include?("llo")  # true
+    "Hello" =~ /llo/         # true
+
+### Case
+
+    "Hello".upcase
+    "Hello".downcase
+
+### Replace
+
+    "Hello".gsub(/o/, "a")     # replace all
+    striing.gsub!(/o/, "a")    # in place
+
+Hash tables
+-----------
+
+### Type
+
+    Hash
+
+See: [Hash](http://www.ruby-doc.org/core-2.2.0/Hash.html).
+
+### Literals
+
+    colors = {
+      apple: "red",
+      grape: "purple"
+    }
+
+### String keys
+
+    colors = {
+      "apple" => "red",
+      "grape" => "purple"
+    }
+
+### Access
+
+    colors[:banana] = "yellow"
+
+### List keys
+
+    colors.keys
+
+### List values
+
+    colors.values
+
+### Iterating
+
+    colors.each do |key, val|
+      # ...
+    end
+
+See: [Hash#each](http://www.ruby-doc.org/core-2.2.0/Hash.html#method-i-each)
+
+File API
+--------
+
+### Reading
+
+    d = File.read('file.txt')
+
+### Writing
+
+    File.write('file.txt', data)
+    File.write('file.txt') { data }

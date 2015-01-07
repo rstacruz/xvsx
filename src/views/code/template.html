@@ -1,49 +1,70 @@
-<div on-click="lol">
+<div>
   {{#work(data, languages)}}
     {{#sections}}
-      <section class='section'>
-        <h2 class='title'>{{title}}</h2>
-
-        {{#subsections}}
-          <table class='article'>
-            <tr>
-              <th colspan='10'>
-                <h3 class='article-head'>{{title}}</h3>
-              </th>
-            </tr>
-
-            <tr>
-              {{#languages}}
-                <td>
-                  <div class='code'>
-                    {{#(!code && !text)}}
-                      &mdash;
-                    {{/}}
-
-                    {{#code}}
-                      <pre class="hljs lang-{{language}}">{{{highlight(language, code)}}}</pre>
-                    {{/}}
-                  </div>
-                </td>
-              {{/}}
-            </tr>
-
-            <tr>
-              {{#languages}}
-                <td>
-                  {{#text}}
-                    <div class='text'>
-                      {{{text}}}
-                    </div>
-                  {{/}}
-                </td>
-              {{/}}
-            </tr>
-
-          </table>
-        {{/}}
-
-      </section>
+      {{>section}}
     {{/}}
   {{/}}
 </div>
+
+<!-- {{>section}} -->
+<section class='section'>
+  <h2 class='title'>{{title}}</h2>
+
+  {{#subsections}}
+    <div class='article'>
+      {{>articleHead}}
+      {{>articleCode}}
+      {{>articleText}}
+    </div>
+  {{/}}
+</section>
+<!-- {{/section}} -->
+
+<!-- {{>articleHead}} -->
+<h3 class='article-head'>{{title}}</h3>
+<!-- {{/articleHead}} -->
+
+<!-- {{>articleLangs}} -->
+<div class='article-languages'>
+  <table>
+    <tr>
+      {{#languages}}
+      <th><h4><span>{{language}}</span></h4></th>
+      {{/}}
+    </tr>
+  </table>
+</div>
+<!-- {{/articleLangs}} -->
+
+<!-- {{>articleCode}} -->
+<div class='article-code'>
+  <table>
+    <tr>
+      {{#languages}}
+        {{^code}}
+          <td class='empty'><span class='nil'></span></td>
+        {{/}}
+        {{#code}}
+          <td>
+            <pre class="hljs lang-{{language}}">{{{highlight(language, code)}}}</pre>
+          </td>
+        {{/}}
+      {{/}}
+    </tr>
+  </td>
+</div>
+<!-- {{/articleCode}} -->
+
+<!-- {{>articleText}} -->
+<div class='article-text'>
+  <table>
+    <tr>
+      {{#languages}}
+        <td>
+          {{{text}}}
+        </td>
+      {{/}}
+    </tr>
+  </td>
+</div>
+<!-- {{/articleText}} -->

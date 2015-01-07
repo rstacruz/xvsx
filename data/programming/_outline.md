@@ -7,6 +7,7 @@ Variables
 
 ### Local variables
 ### Global variables
+### Safe assignment
 
 Classes
 -------
@@ -23,6 +24,7 @@ Arrays
 
 ### Initializing (empty)
 ### Initializing (with contents)
+### Shorthand
 ### Length
 ### Adding items
 ### Removing items
@@ -32,6 +34,8 @@ Types
 -----
 
 ### Primitives
+### Booleans
+### Null
 ### Type checking
 ### Casting
 
@@ -39,6 +43,8 @@ Conditionals
 ------------
 
 ### If-then-else
+### Negative
+### Postfix syntax
 ### Switch-case
 ### And-or
 
@@ -49,3 +55,32 @@ Numbers
 ### Minimum and maximum
 ### Exponents
 ### Trigonometry
+
+Strings
+-------
+
+### Literals
+### Symbols
+### Length
+### Substring
+### Search
+### Case
+### Replace
+
+Hash tables
+-----------
+
+### Type
+### Literals
+### String keys
+### Access
+### List keys
+### List values
+### Iterating
+
+File API
+--------
+
+### Require
+### Reading
+### Writing
