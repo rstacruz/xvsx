@@ -34,6 +34,7 @@ public/%.js: src/%.js
 	@mkdir -p public
 	@$(browserify) $< | $(uglify) > $@
 # force rebuild
-public/app.js: src/app.js $(shell find src -type f)
+public/app.js: src/app.js $(shell find src -name '*.js' -or -name '*.html')
+public/style.css: src/style.styl $(shell find src -name '*.styl')
 
 .PHONY: data assets all

@@ -4,114 +4,11 @@
 @import url('http://fonts.googleapis.com/css?family=Merriweather:300italic')
 @import '../node_modules/iconfonts/stylesheets/ionicons.styl'
 
-$accent = #3498db
+$accent = #f66
 $line = mix(mix(#ddd, $accent, 50%), white, 20%)
 $xblack = #111
 $slate = #789
+$bg = #fcfcfc
 
-body
-  font-family: 'clear sans', sans-serif
-  font-size: 14px
-  line-height: 1.5
-
-body
-  background: #fcfcfc
-
-*
-  text-rendering: optimizeLegibility
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-
-table
-  margin: auto
-  border-collapse: collapse
-  table-layout: fixed
-
-  thead
-    display: none
-
-  th, td
-    border: 0
-    text-align: left
-    vertical-align: top
-
-  td
-    padding: 0 40px 0 0
-    width: 300px
-
-  .section-head th
-    font-size: 2em
-    font-weight: 100
-    padding: 60px 0 20px 0
-    text-align: center
-    color: $slate
-
-  .article-head th
-    padding: 5px 10px
-    color: $xblack
-    font-size: 1.1em
-    font-weight: bold
-    border-radius: 4px
-
-    padding: 40px 0 20px 0
-
-    &:before
-      ion-icon('chevron-down')
-      font-size: 16px
-      display: inline-block
-      margin-right: 15px
-      color: $accent
-
-  td
-    background: white
-    padding: 20px
-    border-right: solid 1px $line
-    border-bottom: solid 1px $line
-
-  .text
-    color: $slate
-    font-size: 0.9em
-    padding-left: 25px
-
-  pre
-    padding: 0
-    margin: 0
-    font-family: 'source code pro', monospace
-    font-size: 1em
-    letter-spacing: -1px
-    line-height: 1.4
-    padding-left: 20px
-
-/*
- * syntax
- */
-
-.hljs
-  &
-    color: #333
-
-  .hljs-keyword
-    color: #459
-
-  .hljs-title
-    font-weight: bold
-    color: #234
-
-  .hljs-comment
-    color: $slate
-    font-style: italic
-    font-family: merriweather, serif
-    letter-spacing: 1px
-    font-size: 0.9em
-
-  .hljs-string,
-  .hljs-number
-    color: $accent
-
-/*
- * sections
- */
-
-.section
-  border-top: solid 1px $line
-  padding: 40px 0
+@require './css/base'
+@require './css/*'

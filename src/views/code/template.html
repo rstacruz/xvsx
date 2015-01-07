@@ -2,27 +2,35 @@
   {{#work(data, languages)}}
     {{#sections}}
       <section class='section'>
-        <table>
-          <tr class='section-head'>
-            <th class='level-2' colspan='10'>{{title}}</th>
-          </tr>
+        <h2 class='title'>{{title}}</h2>
 
-          {{#subsections}}
-            <tr class='article-head'>
-              <th class='level-3' colspan='10'>{{title}}</th>
+        {{#subsections}}
+          <table class='article'>
+            <tr>
+              <th colspan='10'>
+                <h3 class='article-head'>{{title}}</h3>
+              </th>
             </tr>
 
-            <tr class='article'>
+            <tr>
               {{#languages}}
                 <td>
-                  {{#(!code && !text)}}
-                    &mdash;
-                  {{/}}
+                  <div class='code'>
+                    {{#(!code && !text)}}
+                      &mdash;
+                    {{/}}
 
-                  {{#code}}
-                    <pre class="hljs lang-{{language}}">{{{highlight(language, code)}}}</pre>
-                  {{/}}
+                    {{#code}}
+                      <pre class="hljs lang-{{language}}">{{{highlight(language, code)}}}</pre>
+                    {{/}}
+                  </div>
+                </td>
+              {{/}}
+            </tr>
 
+            <tr>
+              {{#languages}}
+                <td>
                   {{#text}}
                     <div class='text'>
                       {{{text}}}
@@ -32,9 +40,9 @@
               {{/}}
             </tr>
 
-          {{/}}
+          </table>
+        {{/}}
 
-        </table>
       </section>
     {{/}}
   {{/}}
