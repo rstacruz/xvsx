@@ -60,6 +60,19 @@ JavaScript doesn't have classes, it has prototypes.
 
     if (obj instanceof ClassName)
 
+Singletons
+----------
+
+### Singleton pattern
+
+    var AppConfig = {
+      read: function() {
+        # ...
+      }
+    };
+
+    AppConfig.read();
+
 Arrays
 ------
 

@@ -19,6 +19,11 @@ Classes
 ### Inheritance
 ### Type checking
 
+Singletons
+----------
+
+### Singleton pattern
+
 Arrays
 ------
 

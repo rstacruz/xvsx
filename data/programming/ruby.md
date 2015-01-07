@@ -66,6 +66,23 @@ See: [Accessors](http://www.rubyist.net/~slagell/ruby/accessors.html). Also: `at
     if instance.is_a?(ClassName)
     if instance.kind_of?(ClassName)
 
+Singletons
+----------
+
+### Singleton pattern
+
+    module AppConfig
+      extend self
+
+      def read
+        # ...
+      end
+    end
+
+    AppConfig.read
+
+See: [extend self](http://stackoverflow.com/questions/3358047/ruby-modules-and-extend-self)
+
 Arrays
 ------
 
