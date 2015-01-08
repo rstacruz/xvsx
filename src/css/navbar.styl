@@ -24,6 +24,7 @@
     padding: 0 (30px - 18px)
     display: inline-block
     float: left
+    text-decoration: none
 
     font-size: 0.9em
     font-weight: bold
@@ -35,13 +36,23 @@
 
     &:hover
       cursor: pointer
-      background: rgba($bg - 1%, 0.25)
+      background: rgba($bg - 2%, 0.25)
 
-    &:before
-      display: inline-block
-      content: ''
-      width: 8px
-      height: 8px
-      border-radius: 50%
-      background: $accent2
-      margin-right: 10px
+  .lang:first-child:before,
+  .lang:last-child:after
+    display: inline-block
+    content: ''
+    width: 8px
+    height: 8px
+    border-radius: 50%
+    background: $accent2
+
+  .lang:first-child:before
+    margin-right: 10px
+
+  .lang:last-child:after
+    margin-left: 10px
+
+  .lang:last-child
+    text-align: right
+

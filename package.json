@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "build": "make",
-    "start": "make && find src data | watch make src & serveur -R public"
+    "start": "make && find src data | watch make src & serveur -R public --compress"
   },
   "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "marked": "^0.3.2",
     "ractivate": "^0.2.0",
     "ractive": "^0.6.1",
+    "ractive-ractive": "^0.4.4",
     "superagent": "^0.21.0",
     "uglify-js": "^2.4.16",
     "underscore": "^1.7.0"

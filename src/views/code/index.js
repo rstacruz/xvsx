@@ -9,11 +9,11 @@ module.exports = Ractive.extend({
   },
 
   oninit: function () {
-    this.on('lol', function () { this.cycle(); });
+    console.log('=>', this.get('config.languages'));
   },
 
   cycle: function () {
-    var langs = this.data.languages.join(',');
+    var langs = this.get('config.languages').join(',');
     if (langs === 'ruby,javascript')
       this.set('languages', ['ruby']);
     else if (langs === 'ruby')
