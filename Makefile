@@ -8,7 +8,6 @@ uglify_bin := ./node_modules/.bin/uglifyjs
 uglify := $(uglify_bin) -m
 
 programming_files := $(wildcard data/programming/*.md)
-asset_files := public/index.html public/style.css public/app.js public/vendor.js
 
 all: data assets
 	@echo "OK"
@@ -20,21 +19,33 @@ public/%.json:
 	@mkdir -p public
 	@node lib/bundle.js $^ > $@
 
-assets: $(asset_files)
+assets: \
+	public/index.html \
+	public/style.css \
+	public/app.js \
+	public/vendor.js
+
+public/app.js: \
+	src/app.js \
+	$(shell find src -name '*.js' -or -name '*.html')
+
+public/style.css: \
+	src/style.styl \
+	$(shell find src -name '*.styl')
+
 public/%.html: src/%.html
 	#        copy  $@
 	@mkdir -p public
 	@cp $< $@
+
 public/%.css: src/%.styl
 	#      stylus  $@
 	@mkdir -p public
 	@$(stylus) $< -p > $@
+
 public/%.js: src/%.js
 	#  browserify  $@
 	@mkdir -p public
 	@$(browserify) $< | $(uglify) > $@
-# force rebuild
-public/app.js: src/app.js $(shell find src -name '*.js' -or -name '*.html')
-public/style.css: src/style.styl $(shell find src -name '*.styl')
 
 .PHONY: data assets all
