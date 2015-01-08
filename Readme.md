@@ -1,10 +1,12 @@
-### Editing content
-
-Edit stuff in `data/` and run `make` afterwards
-
 ### Dev setup
 
     npm test
-    npm run watch
+    npm start
 
-Requires entr (`brew install entr`)
+### Editing content
+
+Edit stuff in `data/`. Run the dev server (`npm start`) to preview.
+
+### Deploying
+
+...
