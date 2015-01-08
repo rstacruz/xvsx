@@ -2,18 +2,10 @@ var work = require('./presenter');
 
 var memoize = require('underscore').memoize;
 
-var highlight = memoize(function (lang, code) {
-  var out = hljs.highlight(lang, code);
-  return out.value;
-}, function (lang, code) {
-  return lang + code;
-});
-
 module.exports = Ractive.extend({
   template: require('./template.html'),
   computed: {
-    work: wrap(work),
-    highlight: wrap(highlight)
+    work: wrap(work)
   },
 
   oninit: function () {
