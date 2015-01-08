@@ -8,7 +8,7 @@ uglify_bin := ./node_modules/.bin/uglifyjs
 uglify := $(uglify_bin) -m
 
 programming_files := $(wildcard data/programming/*.md)
-asset_files := public/index.html public/style.css public/app.js
+asset_files := public/index.html public/style.css public/app.js public/vendor.js
 
 all: data assets
 	@echo "OK"
@@ -20,7 +20,7 @@ public/%.json:
 	@mkdir -p public
 	@node lib/bundle.js $^ > $@
 
-assets: public/app.js public/vendor.js $(asset_files)
+assets: $(asset_files)
 public/%.html: src/%.html
 	#        copy  $@
 	@mkdir -p public
