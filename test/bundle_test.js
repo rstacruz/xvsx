@@ -8,8 +8,8 @@ describe('work', function () {
 
   before(function () {
     output = work([
-      'data/programming/ruby.md',
-      'data/programming/javascript.md'
+      'data/ruby.md',
+      'data/javascript.md'
     ]);
   });
 

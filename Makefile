@@ -10,10 +10,15 @@ all: data assets
 # data: build json from .md files
 #
 
-data: public/data.json
+data: public/data.js public/data.json
+
 public/data.json: $(shell find data -name '*.md')
 	#      bundle  $@
 	@node lib/bundle.js $^ > $@
+
+public/data.js: public/data.json
+	#      bundle  $@
+	@(echo "window.Data=(" ; cat $^ ; echo ");") > $@
 
 #
 # assets: build via stylus/browserify
