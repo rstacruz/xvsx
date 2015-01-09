@@ -42,7 +42,9 @@ describe('bundle.outlinify', function () {
   });
 
   it('exports h3 code', function () {
-    expect(h3.code).eql('var x = 1');
+    expect(h3.code).eql(
+      '<span class="hljs-keyword">var</span>' +
+      ' x = <span class="hljs-number">1</span>');
   });
 
   it('exports h3 text', function () {
