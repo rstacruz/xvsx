@@ -1,5 +1,7 @@
 (function () {
 
+  var text = require('dom101/text');
+
   var CodeView = require('./views/code');
   var NavView = require('./views/nav');
   window.App = {};
@@ -7,6 +9,15 @@
   App.config = new Ractive({ data: {
     languages: ['ruby', 'javascript']
   }});
+
+  App.config.observe('languages', function (langs) {
+    var titles = langs.map(function (lang) {
+      return Data.languages[lang].title;
+    });
+
+    text(document.querySelector('title'),
+      titles.join(' vs. '));
+  });
 
   page('/', function (ctx) {
   });
