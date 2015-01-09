@@ -1,5 +1,6 @@
 (function () {
 
+  
   var Data;
   var CodeView = require('./views/code');
   var NavView = require('./views/nav');
@@ -35,7 +36,7 @@
         el: document.getElementById('content'),
         data: {
           config: App.config,
-          data: res.body
+          data: Data
         },
       });
     });

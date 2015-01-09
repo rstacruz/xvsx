@@ -3,50 +3,58 @@ var expect = require('chai').expect;
 var present = require('../src/views/code/presenter');
 var pluck = require('underscore').pluck;
 
-describe('code: presenter', function () {
+describe('Presenter:', function () {
   var data, out;
 
   data = {
-    outline: {
-      "Variables": {
-        "Defining": {},
-        "Assigning": {},
-        "Deleting": {}
-      },
-      "Classes": {
-        "Constructor": {}
-      },
-      "Prototypes": {
-        "Accessing": {}
-      }
-    },
     languages: {
-      javascript: {
-        "Variables": {
-          "Defining": { code: "var x = 2" },
-          "Assigning": { code: "x = 2" },
-          "Deleting": { code: "delete x" }
+      "ruby": { bundle: 'programming' },
+      "javascript": { bundle: 'programming' }
+    },
+    bundles: {
+      programming: {
+        outline: {
+          "Variables": {
+            "Defining": {},
+            "Assigning": {},
+            "Deleting": {}
+          },
+          "Classes": {
+            "Constructor": {}
+          },
+          "Prototypes": {
+            "Accessing": {}
+          }
         },
-        "Classes": {
-          "Constructor": { code: "function MyClass()" }
-        },
-        "Prototypes": {
-          "Accessing": { code: "object.prototype" }
-        }
-      },
-      ruby: {
-        "Variables": {
-          "Defining": { code: "x = 2" },
-          "Assigning": { code: "x = 2" }
-        },
-        "Classes": {
-          "Constructor": { code: "class MyClass" }
+        languages: {
+          javascript: {
+            "Variables": {
+              "Defining": { code: "var x = 2" },
+              "Assigning": { code: "x = 2" },
+              "Deleting": { code: "delete x" }
+            },
+            "Classes": {
+              "Constructor": { code: "function MyClass()" }
+            },
+            "Prototypes": {
+              "Accessing": { code: "object.prototype" }
+            }
+          },
+          ruby: {
+            "Variables": {
+              "Defining": { code: "x = 2" },
+              "Assigning": { code: "x = 2" }
+            },
+            "Classes": {
+              "Constructor": { code: "class MyClass" }
+            }
+          }
         }
       }
     }
   };
 
-  describe("For all", function () {
+  describe("multiple languages:", function () {
     before(function () {
       out = present(data, ['javascript', 'ruby']);
     });
@@ -57,6 +65,10 @@ describe('code: presenter', function () {
 
     it('has .languages', function () {
       expect(pluck(out.languages, 'id')).eql(['javascript', 'ruby']);
+    });
+
+    it('has sections', function () {
+      expect(out.sections).have.length.gt(0);
     });
 
     it('has all h2s', function () {
@@ -81,7 +93,7 @@ describe('code: presenter', function () {
 
   });
 
-  describe("For just one", function () {
+  describe("one language:", function () {
     before(function () {
       out = present(data, ['ruby']);
     });

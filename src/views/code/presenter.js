@@ -2,6 +2,8 @@ var pluck = require('underscore').pluck;
 var compact = require('underscore').compact;
 
 module.exports = function (data, languages) {
+  var bundleName = getBundleName(data, languages);
+
   var langs = languages.map(function (lang) {
     return { id: lang };
   });
@@ -11,15 +13,17 @@ module.exports = function (data, languages) {
     sections: []
   };
 
+  var bundle = data.bundles[bundleName];
+
   // each section
-  re.sections = compact(map(data.outline, function (h2, suboutline) {
+  re.sections = compact(map(bundle.outline, function (h2, suboutline) {
 
     // subsections
     var subs = compact(map(suboutline, function (h3, subsection) {
 
       // languages
       var langs = languages.map(function (lang) {
-        var ld = data.languages[lang];
+        var ld = bundle.languages[lang];
         var d = ld[h2] && ld[h2][h3];
         if (!d) return { lang: lang };
 
@@ -59,4 +63,28 @@ function map (obj, fn) {
     var val = obj[key];
     return fn(key, val);
   });
+}
+
+/*
+ * helper
+ *
+ *     getBundleName({...}, ['ruby', 'javascript']);
+ *     //=> "programming"
+ */
+
+function getBundleName (data, languages) {
+  var name;
+
+  languages.forEach(function (lang) {
+    var _name =
+      data.languages[lang] &&
+      data.languages[lang].bundle;
+
+    if (!name)
+      name = _name;
+    else if (name !== _name)
+      throw new Error("Not in the same bundle");
+  });
+
+  return name;
 }
