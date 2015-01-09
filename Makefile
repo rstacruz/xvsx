@@ -1,23 +1,24 @@
-browserify_bin := ./node_modules/.bin/browserify
-browserify := $(browserify_bin) -t [ ractivate -x .html ]
-
-stylus_bin := ./node_modules/.bin/stylus
-stylus := $(stylus_bin) -u nib
-
-uglify_bin := ./node_modules/.bin/uglifyjs
-uglify := $(uglify_bin) -m
-
-programming_files := $(wildcard data/programming/*.md)
+bin        := ./node_modules/.bin
+browserify := $(bin)/browserify -t [ ractivate -x .html ]
+stylus     := $(bin)/stylus -u nib
+uglify     := $(bin)/uglifyjs -m
 
 all: data assets
-	@echo "OK"
+	@echo "\033[32m✓\033[0m"
+
+#
+# data: build json from .md files
+#
 
 data: public/programming.json
-public/programming.json: $(programming_files)
+public/programming.json: $(wildcard data/programming/*.md)
 public/%.json:
-	#    bundling  $@
-	@mkdir -p public
+	#      bundle  $@
 	@node lib/bundle.js $^ > $@
+
+#
+# assets: build via stylus/browserify
+#
 
 assets: \
 	public/index.html \
@@ -35,17 +36,14 @@ public/style.css: \
 
 public/%.html: src/%.html
 	#        copy  $@
-	@mkdir -p public
 	@cp $< $@
 
 public/%.css: src/%.styl
 	#      stylus  $@
-	@mkdir -p public
 	@$(stylus) $< -p > $@
 
 public/%.js: src/%.js
 	#  browserify  $@
-	@mkdir -p public
 	@$(browserify) $< | $(uglify) > $@
 
 .PHONY: data assets all
