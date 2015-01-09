@@ -1,6 +1,5 @@
 (function () {
 
-  
   var Data;
   var CodeView = require('./views/code');
   var NavView = require('./views/nav');
@@ -22,7 +21,7 @@
   page({ hashbang: true });
 
   request
-    .get('programming.json')
+    .get('data.json')
     .end(function (err, res) {
       Data = res.body;
       new NavView({

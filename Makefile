@@ -10,9 +10,8 @@ all: data assets
 # data: build json from .md files
 #
 
-data: public/programming.json
-public/programming.json: $(wildcard data/programming/*.md)
-public/%.json:
+data: public/data.json
+public/data.json: $(shell find data -name '*.md')
 	#      bundle  $@
 	@node lib/bundle.js $^ > $@
 
