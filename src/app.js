@@ -19,7 +19,8 @@
   new NavView({
     el: document.getElementById('nav'),
     data: {
-      config: App.config
+      config: App.config,
+      data: window.Data
     }
   });
 

@@ -12,16 +12,14 @@ Variables
 
 ### Global variables
 
-The global context is in `window` (browser) or `global` (Node.js).
-
     window.gvar = 1;
+
+The global context is in `window` (browser) or `global` (Node.js).
 
 Classes
 -------
 
 ### Defining classes
-
-JavaScript doesn't have classes, it has prototypes.
 
     function Shape() {
     }
@@ -29,6 +27,8 @@ JavaScript doesn't have classes, it has prototypes.
     Shape.prototype.area = function () {
       return this.width * this.height;
     };
+
+JavaScript doesn't have classes, it has prototypes.
 
 ### Basic instanciation
 
