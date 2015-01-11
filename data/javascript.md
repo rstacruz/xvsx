@@ -395,7 +395,7 @@ Printing
     console.log("hello");
     process.stdout.write("hello\n"); // Node
 
-## Error output
+### Error output
 
     console.warn("oh no");
     process.stderr.write("oh no\n"); // Node

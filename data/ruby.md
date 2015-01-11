@@ -466,7 +466,7 @@ Printing
     puts "hello"
     $stdout << "hello\n"
 
-## Error output
+### Error output
 
     $stderr << "oh no\n"
 
