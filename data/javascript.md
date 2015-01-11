@@ -150,9 +150,9 @@ Assume all examples start with this.
 
 ### Adding items
 
-    list.push(X);         // [_, _, _, _, _, X]
-    list.unshift(X);      // [X, _, _, _, _, _]
-    list.splice(2, 0, X); // [_, _, X, _, _, _]
+    list.push(X);          // [_, _, _, _, _, X]
+    list.unshift(X);       // [X, _, _, _, _, _]
+    list.splice(2, 0, X);  // [_, _, X, _, _, _]
 
 ### Removing items
 
@@ -161,8 +161,8 @@ Assume all examples start with this.
     list          // [a, b, c, d]
 
     // first
-    list.shift()  //=> [a]
-    list          //=> [b, c, d, e]
+    list.shift()  // [a]
+    list          // [b, c, d, e]
 
 ### Subsets
 

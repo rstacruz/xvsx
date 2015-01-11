@@ -205,7 +205,7 @@ Assume all examples start with this.
 
 ### Adding items
 
-    list <<  X       # [_, _, _, _, _, X]
+    list << X        # [_, _, _, _, _, X]
     list.unshift X   # [X, _, _, _, _, _]
     list[2..0] = X   # [_, _, X, _, _, _]
 
