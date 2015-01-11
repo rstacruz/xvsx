@@ -15,6 +15,10 @@
     languages: ['ruby', 'javascript']
   }});
 
+  /*
+   * change title
+   */
+
   App.config.observe('languages', function (langs) {
     var titles = langs.map(function (lang) {
       return Data.languages[lang].title;
@@ -40,8 +44,16 @@
 
   App.nav.update = function (idx, lang) {
     var langs = App.config.get('languages');
+
+    // replace it
     if (lang) langs[idx] = lang;
     else langs.splice(idx, 1);
+
+    // if it's the same, collapse into one
+    if (langs[0] === langs[1] && langs.length === 2)
+      langs = [ langs[0] ];
+
+    // navigate
     page('/' + langs.join('/'));
   };
 
