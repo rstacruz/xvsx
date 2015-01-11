@@ -1,0 +1,9 @@
+<div class='lang-dropdown -i{{idx+1}}'>
+  {{#languages:key}}
+    <li>
+    <button on-click="updateLanguage(idx, key)" class="{{config.languages[idx] == key ? '-active' : ''}}">
+        {{title}}
+      </button>
+    </li>
+  {{/}}
+</div>

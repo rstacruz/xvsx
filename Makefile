@@ -46,8 +46,12 @@ public/%.css: src/%.styl
 	#      stylus  $@
 	@$(stylus) $< -p > $@
 
-public/%.js: src/%.js
+public/vendor.js: src/vendor.js
 	#  browserify  $@
 	@$(browserify) $< | $(uglify) > $@
+
+public/%.js: src/%.js
+	#  browserify  $@
+	@$(browserify) $< > $@
 
 .PHONY: data assets all

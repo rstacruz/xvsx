@@ -1,5 +1,3 @@
-#nav
-
 .navbar
   position: fixed
   bottom: 0
@@ -12,19 +10,38 @@
   background: mix($bg, white, 50%)
 
   height: $height
-  line-height: $height
+  line-height: $height - 1px
   box-shadow: 0 0 1px rgba(black, 0.1)
 
   .container
     width: $column * 2
     margin: 0 auto
+    position: relative
 
   .lang
+    position: relative
+
+  .dropdowns
+    &.-visible
+      display: block
+    &.-hidden
+      display: none
+    &
+      position: absolute
+      bottom: $height
+      left: 0
+      width: 100%
+
+  .lang-button
     width: $column
+    height: $height
+    line-height: $height - 1px
     padding: 0 (30px - 18px)
     display: inline-block
     float: left
     text-decoration: none
+    text-align: left
+    display: block
 
     font-size: 0.9em
     font-weight: bold
@@ -38,21 +55,58 @@
       cursor: pointer
       background: rgba($bg - 2%, 0.25)
 
-  .lang:first-child:before,
-  .lang:nth-child(2):after
+  .lang-button:before
     display: inline-block
     content: ''
     width: 8px
     height: 8px
     border-radius: 50%
     background: $accent2
-
-  .lang:first-child:before
     margin-right: 10px
 
-  .lang:nth-child(2):after
-    margin-left: 10px
+/*
+ * dropdown
+ */
 
-  .lang:nth-child(2)
-    text-align: right
+.navbar .dropdowns
+  &
+    overflow: hidden
+    background: rgba($slate - 50%, 95%)
+    box-shadow: 0 1px 2px rgba(black, 0.1)
 
+  .lang-dropdown
+    width: 50%
+    float: left
+
+/*
+ * dropdown
+ */
+
+.lang-dropdown
+  &
+    min-width: 190px
+    font-size: 0.9em
+    border-radius: 3px
+    padding: 15px 0
+
+  ul, li
+    margin: 0
+    padding: 0
+    list-style: none
+
+  button
+    display: block
+    text-align: left
+    width: 100%
+    padding: 5px 15px
+    line-height: 1.2em
+    text-decoration: none
+    color: #ddd
+    font-weight: bold
+
+  button:hover, button:focus
+    color: #fff
+    background: rgba($slate, 0.05)
+
+  button.-active
+    color: $accent2

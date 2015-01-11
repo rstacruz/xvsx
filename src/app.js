@@ -7,6 +7,10 @@
   var NavView = require('./views/nav');
   window.App = {};
 
+  /*
+   * Config
+   */
+
   App.config = new Ractive({ data: {
     languages: ['ruby', 'javascript']
   }});
@@ -18,6 +22,32 @@
 
     text(q('title'), titles.join(' vs. '));
   });
+
+
+  /*
+   * Navigation helpers
+   */
+
+  App.nav = {};
+
+  /*
+   * Changes languages. Updates index `idx` to language `lang`.
+   *
+   *     App.nav.update(0, 'javascript');
+   *     App.nav.update(1, 'python');
+   *     App.nav.update(1, null);
+   */
+
+  App.nav.update = function (idx, lang) {
+    var langs = App.config.get('languages');
+    if (lang) langs[idx] = lang;
+    else langs.splice(idx, 1);
+    page('/' + langs.join('/'));
+  };
+
+  /*
+   * Routes
+   */
 
   page('/', function (ctx) {
   });
@@ -31,6 +61,10 @@
     App.config.set('languages',
       [ctx.params.left, ctx.params.right]);
   });
+
+  /*
+   * Views
+   */
 
   new NavView({
     el: document.getElementById('nav'),
@@ -47,6 +81,10 @@
       data: window.Data
     },
   });
+
+  /*
+   * Start the router
+   */
 
   page.base(location.pathname.replace(/\/$/,''));
   page({ hashbang: true });

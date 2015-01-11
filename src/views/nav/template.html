@@ -1,9 +1,20 @@
 <div class='navbar'>
+  <div class='dropdowns -{{dropdownVisible ? "visible" : "hidden"}}'>
+    <div class='container'>
+      <langDropdown languages="{{data.languages}}" idx="0" />
+      <langDropdown languages="{{data.languages}}" idx="1" />
+    </div>
+  </div>
+
   <div class='container'>
-    {{#config.languages}}
-      <a class='lang' href=''>
-        {{titleize(.)}}
-      </a>
+
+    {{#config.languages:i}}
+      <div class="lang -i{{i+1}}">
+        <button class='lang-button -i{{i+1}}' on-click="toggleDropdown()">
+          {{titleize(.)}}
+        </button>
+      </div>
     {{/}}
+
   </div>
 </div>
