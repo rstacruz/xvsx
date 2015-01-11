@@ -1,6 +1,7 @@
 (function () {
 
   var text = require('dom101/text');
+  var q = require('dom101/query-selector');
 
   var CodeView = require('./views/code');
   var NavView = require('./views/nav');
@@ -15,8 +16,7 @@
       return Data.languages[lang].title;
     });
 
-    text(document.querySelector('title'),
-      titles.join(' vs. '));
+    text(q('title'), titles.join(' vs. '));
   });
 
   page('/', function (ctx) {
