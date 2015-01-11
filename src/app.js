@@ -43,6 +43,7 @@
     },
   });
 
+  page.base(location.pathname);
   page({ hashbang: true });
 
 })();
