@@ -3,6 +3,62 @@ Ruby
 
 * Bundle: programming
 
+Functions
+---------
+
+### Defining functions
+
+    def greet(hi, name)
+      puts "#{hi}, #{name}"
+    end
+
+### Invoking
+
+    greet "Hello", "John"
+    greet("Hello", "John")
+
+### Returning values
+
+    def square(n)
+      return n * n
+    end
+
+### Implicit returns
+   
+    def square(n)
+      n * n
+    end
+
+The last statement's value is always returned.
+
+### Implicit returns (2)
+   
+    def divide(a, b)
+      if b == 0
+        raise "Divide by 0"
+      else
+        a / b
+      end
+    end
+
+### Anonymous functions
+
+    add_one = -> (n) { n + 1 }
+    add_one = lambda { |n| n + 1 }  # Ruby 1.8-
+
+    add_one.call(20)
+    add_one[20]
+
+### Default values
+
+    def greet(name = 'Larry')
+
+### Splat
+
+    def greet(hi, *names)
+      # names == ['Moe', 'Curly']
+    end
+
 Variables
 ---------
 
@@ -19,6 +75,14 @@ See: [Global variables](http://www.rubyist.net/~slagell/ruby/globalvars.html).
 ### Safe assignment
 
     myvar ||= 1
+
+### Instance variables
+
+    @var
+
+### Class variables
+
+    @@var
 
 Classes
 -------
@@ -71,6 +135,31 @@ See: [Accessors](http://www.rubyist.net/~slagell/ruby/accessors.html). Also: `at
     if instance.is_a?(ClassName)
     if instance.kind_of?(ClassName)
 
+Methods
+-------
+
+### Defining
+
+    class MyClass
+      def method
+        # ...
+      end
+    end
+
+### Static methods
+
+    class MyClass
+      def self.method
+        # ...
+      end
+    end
+
+    MyClass.method
+
+### Running a method with an arbitrary name
+
+    obj.send :method_name, arg1, arg2
+
 Singletons
 ----------
 
@@ -91,13 +180,16 @@ See: [extend self](http://stackoverflow.com/questions/3358047/ruby-modules-and-e
 Arrays
 ------
 
-### Initializing (empty)
+### Initializing
 
     list = []
+    list = ["a", "b", "c", "d", "e"]
 
-### Initializing (with contents)
+Assume all examples start with this.
 
-    list = ["a", "b", "c"]
+### Accessing
+
+    list[0]  # "a"
 
 ### Shorthand
 
@@ -113,23 +205,33 @@ Arrays
 
 ### Adding items
 
-    list << "d"
-    # ["a", "b", "c", "d"]
-
-    list.unshift "X"
-    # ["X", "a", "b", "c", "d"]
+    list <<  X       # [_, _, _, _, _, X]
+    list.unshift X   # [X, _, _, _, _, _]
+    list[2..0] = X   # [_, _, X, _, _, _]
 
 ### Removing items
 
     # last
-    list.pop     # "d"
-    list         # ["X", "a", "b", "c"]
+    list.pop     # e
+    list         # [a, b, c, d]
 
     # first
-    list.shift   # "X"
-    list         # ["a", "b", "c"]
+    list.shift   # a
+    list         # [b, c, d, e]
 
-### Checking for presence of items
+### Subsets
+
+    list[0...1]  # [a]
+    list[1..-1]  # [b, c, d, e]
+    list[3...4]  # [c]
+
+### Subsets (destructive)
+
+    re = list.slice!(3...4)
+    # re   = [c]
+    # list = [a, b, d, e]
+
+### Checking for presence
 
     if [1, 2, 3].include?(2)
 
@@ -242,6 +344,14 @@ Strings
 
     :hello
 
+### Interpolation
+
+    "Hello, #{name}"
+
+### Formatting
+
+    "Hello, %s from %s" % [ name, city ]
+
 ### Length
 
     "Hello".size
@@ -249,13 +359,13 @@ Strings
 ### Substring
 
     "Hi world"[0...2]  # "Hi"
-    "Hi world"[6..-1]  # "world"
+    "Hi world"[3..-1]  # "world"
     "Hi world"[3..5]   # "wo"
 
 ### Search
 
-    "Hello".index("o")  # 4
-    "Hello".index("x")  # nil
+    "Hi".index("o")  # 4
+    "Hi".index("x")  # nil
 
     "Hello".include?("llo")  # true
     "Hello" =~ /llo/         # true
@@ -267,8 +377,8 @@ Strings
 
 ### Replace
 
-    "Hello".gsub(/o/, "a")     # replace all
-    striing.gsub!(/o/, "a")    # in place
+    "Hi".gsub(/o/, "ello")  # replace all
+    str.gsub!(/o/, "ello")  # in place
 
 Hash tables
 -----------
@@ -312,6 +422,53 @@ See: [Hash](http://www.ruby-doc.org/core-2.2.0/Hash.html).
     end
 
 See: [Hash#each](http://www.ruby-doc.org/core-2.2.0/Hash.html#method-i-each)
+
+Iterables
+---------
+
+### Iterating
+
+    list.each do |item|
+      # ...
+    end
+
+### Map
+
+    list.map do |item|
+      expr(item)
+    end
+
+### Reduce
+
+    list.inject do |acc, item|
+      acc += item
+      acc
+    list
+
+String representation
+---------------------
+
+### Getting
+
+    obj.to_s
+    obj.inspect
+
+### Overriding
+
+    def to_s
+    def inspect
+
+Printing
+--------
+
+### Printing
+
+    puts "hello"
+    $stdout << "hello\n"
+
+## Error output
+
+    $stderr << "oh no\n"
 
 File API
 --------

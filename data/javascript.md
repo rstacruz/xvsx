@@ -3,6 +3,37 @@ JavaScript
 
 * Bundle: programming
 
+Functions
+---------
+
+### Defining functions
+
+    function greet(hi, name) {
+      console.log(hi + ", " + name);
+    }
+
+### Invoking
+
+    greet("Hello", "John");
+
+### Returning values
+
+    function square(n) {
+      return n * n;
+    }
+
+### Anonymous functions
+
+    var addOne = function(n) { return n + 1; }
+    addOne(20);
+
+### Splat
+
+    function work(hi) {
+      var names = [].slice.call(arguments, 1);
+      // arguments == ['Moe', 'Larry']
+    }
+
 Variables
 ---------
 
@@ -65,6 +96,27 @@ JavaScript doesn't have classes, it has prototypes.
 
     if (obj instanceof ClassName)
 
+Methods
+-------
+
+### Defining
+
+    MyClass.prototype.method = function () {
+      // ...
+    }
+
+### Static methods
+
+    MyClass.method = function () {
+      // ...
+    }
+
+    MyClass.method();
+
+### Running a method with an arbitrary name
+
+    obj["method_name"](arg1, arg2);
+
 Singletons
 ----------
 
@@ -72,7 +124,7 @@ Singletons
 
     var AppConfig = {
       read: function() {
-        # ...
+        // ...
       }
     };
 
@@ -81,13 +133,16 @@ Singletons
 Arrays
 ------
 
-### Initializing (empty)
+### Initializing
 
     list = [];
+    list = ["a", "b", "c", "d", "e"];
 
-### Initializing (with contents)
+Assume all examples start with this.
 
-    list = ["a", "b", "c"];
+### Accessing
+
+    list[0]  // "a"
 
 ### Length
 
@@ -95,23 +150,33 @@ Arrays
 
 ### Adding items
 
-    list.push("d");
-    // ["a", "b", "c", "d"]
-
-    list.unshift("X");
-    // ["X", "a", "b", "c", "d"]
+    list.push(X);         // [_, _, _, _, _, X]
+    list.unshift(X);      // [X, _, _, _, _, _]
+    list.splice(2, 0, X); // [_, _, X, _, _, _]
 
 ### Removing items
 
     // last
-    list.pop()    //=> "d"
-    list          //=> ["X", "a", "b", "c"]
+    list.pop()    // [e]
+    list          // [a, b, c, d]
 
     // first
-    list.shift()  //=> "X"
-    list          //=> ["a", "b", "c"]
+    list.shift()  //=> [a]
+    list          //=> [b, c, d, e]
 
-### Checking for presence of items
+### Subsets
+
+    list.slice(0, 1)  // [a]
+    list.slice(1)     // [b, c, d, e]
+    list.slice(3, 4)  // [c]
+
+### Subsets (destructive)
+
+    re = list.splice(3, 4);
+    // re   = [e]
+    // list = [a, b, d, e]
+
+### Checking for presence
 
     if ([1, 2, 3].indexOf(2) > -1)
 
@@ -218,6 +283,13 @@ Strings
     "hello"
     'world'
 
+### Formatting
+
+    var format = require('util').format;
+    format("Hello, %s from %s", name, city);
+
+[format](http://nodejs.org/api/util.html#util_util_format_format) is only available on Node.js.
+
 ### Length
 
     "Hello".length
@@ -225,13 +297,13 @@ Strings
 ### Substring
 
     "Hi world".substr(0, 2)  // "Hi"
-    "Hi world".substr(6)     // "world"
+    "Hi world".substr(3)     // "world"
     "Hi world".substr(3, 2)  // "wo"
 
 ### Search
 
-    "Hello".indexOf("o")  // 4
-    "Hello".indexOf("x")  // -1
+    "Hi".indexOf("i")  // 4
+    "Hi".indexOf("x")  // -1
 
 ### Case
 
@@ -240,7 +312,7 @@ Strings
 
 ### Replace
 
-    "Hello".replace(/o/g, "a")  // "Hella"
+    "Hi".replace(/i/g, "ello")  // "Hello"
 
 Hash tables
 -----------
@@ -276,6 +348,50 @@ Hash tables
 
 Be sure to always check
 [hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty).
+
+String representation
+---------------------
+
+### Getting
+
+    obj.toString()
+    "" + obj
+    String(obj)
+
+Iterables
+---------
+
+### Iterating
+
+    list.forEach(function(item) {
+      // ...
+    });
+
+### Map
+
+    list.map(function(item) {
+      return expr(item);
+    });
+
+### Reduce
+
+    list.reduce(function(acc, item) {
+      acc += item;
+      return acc;
+    });
+
+Printing
+--------
+
+### Printing
+
+    console.log("hello");
+    process.stdout.write("hello\n"); // Node
+
+## Error output
+
+    console.warn("oh no");
+    process.stderr.write("oh no\n"); // Node
 
 File API
 --------
