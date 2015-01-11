@@ -1,12 +1,19 @@
-### Dev setup
+## Contributing content
+
+Edit stuff in [data/](data/). They're just Markdown files.
+
+To preview, check it out locally and run the dev server (`npm start`).
+
+## Dev setup
+
+Tests:
 
     npm test
+
+Dev server:
+
     npm start
-
-### Editing content
-
-Edit stuff in `data/`. Run the dev server (`npm start`) to preview.
 
 ### Deploying
 
-...
+Automaticaly deployed to `gh-pages` using Travis; see [.travis.yml](.travis.yml).
