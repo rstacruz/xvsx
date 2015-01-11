@@ -37,7 +37,7 @@
 <!-- {{/articleLangs}} -->
 
 <!-- {{>articleCode}} -->
-<div class='article-code'>
+<div class="article-code {{hasText ? '-with-text' : ''}}">
   <table>
     <tr>
       {{#languages}}
@@ -56,6 +56,7 @@
 <!-- {{/articleCode}} -->
 
 <!-- {{>articleText}} -->
+{{#hasText}}
 <div class='article-text'>
   <table>
     <tr>
@@ -67,4 +68,5 @@
     </tr>
   </td>
 </div>
+{{/}}
 <!-- {{/articleText}} -->

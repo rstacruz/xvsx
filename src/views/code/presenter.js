@@ -1,6 +1,20 @@
 var pluck = require('underscore').pluck;
 var compact = require('underscore').compact;
 
+/*
+ * Returns
+ *
+ *     languages:
+ *     sections:
+ *       - title: '...'
+ *         subsections:
+ *           - title: '...'
+ *             languages:
+ *               - language: ''
+ *                 text: ''
+ *                 code: ''
+ */
+
 module.exports = function (data, languages) {
   var bundleName = getBundleName(data, languages);
 
@@ -37,8 +51,11 @@ module.exports = function (data, languages) {
       if (compact(pluck(langs, 'code')).length === 0)
         return undefined;
 
+      var hasText = langs.map(function (l) { return l.text; }).join("").length > 0;
+
       return {
         title: h3,
+        hasText: hasText,
         languages: compact(langs)
       };
     }));
