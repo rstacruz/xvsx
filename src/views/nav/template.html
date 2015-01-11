@@ -1,10 +1,9 @@
 <div class='navbar'>
   <div class='container'>
-    <a class='lang' href=''>
-      {{titleize(config.languages[0])}}
-    </a>
-    <a class='lang' href=''>
-      {{titleize(config.languages[1])}}
-    </a>
+    {{#config.languages}}
+      <a class='lang' href=''>
+        {{titleize(.)}}
+      </a>
+    {{/}}
   </div>
 </div>

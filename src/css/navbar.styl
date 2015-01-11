@@ -16,11 +16,11 @@
   box-shadow: 0 0 1px rgba(black, 0.1)
 
   .container
-    width: 800px
+    width: $column * 2
     margin: 0 auto
 
   .lang
-    width: 400px
+    width: $column
     padding: 0 (30px - 18px)
     display: inline-block
     float: left
@@ -39,7 +39,7 @@
       background: rgba($bg - 2%, 0.25)
 
   .lang:first-child:before,
-  .lang:last-child:after
+  .lang:nth-child(2):after
     display: inline-block
     content: ''
     width: 8px
@@ -50,9 +50,9 @@
   .lang:first-child:before
     margin-right: 10px
 
-  .lang:last-child:after
+  .lang:nth-child(2):after
     margin-left: 10px
 
-  .lang:last-child
+  .lang:nth-child(2)
     text-align: right
 

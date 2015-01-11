@@ -367,17 +367,24 @@ Iterables
       // ...
     });
 
+### Foreach loops
+
+    for (var i = 0, len = list.length; i < len; i++) {
+      var item = list[i];
+      // ...
+    }
+
 ### Map
 
     list.map(function(item) {
-      return expr(item);
+      return use(item);
     });
 
 ### Reduce
 
-    list.reduce(function(acc, item) {
-      acc += item;
-      return acc;
+    list.reduce(function(result, item) {
+      result += item;
+      return result;
     });
 
 Printing

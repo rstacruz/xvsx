@@ -4,7 +4,7 @@
 
 .article
   margin: 10px auto
-  width: 800px
+  max-width: $column * 2
 
   table
     table-layout: fixed
@@ -15,7 +15,7 @@
     border-radius: 4px
 
   td, th
-    width: 400px
+    max-width: $column
 
   .article-languages
     opacity: 0
@@ -24,6 +24,9 @@
 
   &:hover .article-languages
     opacity: 1
+
+  .with-1 &
+    max-width: $column * 1.5
 
 /*
  * head
@@ -50,6 +53,11 @@
     text-align: center
     border: solid 2px $accent
     border-radius: 50%
+
+  // .with-1 &
+  //   max-width: $column + 100px
+  //   margin-left: auto
+  //   margin-right: auto
 
 /*
  * code
@@ -78,6 +86,12 @@
     font-size: 24px
     color: $bg - 2%
     text-align: center
+
+  // 1 guard
+  pre
+    // max-width: $column
+    margin-left: auto
+    margin-right: auto
 
 /*
  * text

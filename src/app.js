@@ -22,6 +22,11 @@
   page('/', function (ctx) {
   });
 
+  page('/:left', function (ctx) {
+    App.config.set('languages',
+      [ctx.params.left]);
+  });
+
   page('/:left/:right', function (ctx) {
     App.config.set('languages',
       [ctx.params.left, ctx.params.right]);
@@ -43,7 +48,7 @@
     },
   });
 
-  page.base(location.pathname);
+  page.base(location.pathname.replace(/\/$/,''));
   page({ hashbang: true });
 
 })();

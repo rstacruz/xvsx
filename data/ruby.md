@@ -435,14 +435,14 @@ Iterables
 ### Map
 
     list.map do |item|
-      expr(item)
+      use(item)
     end
 
 ### Reduce
 
-    list.inject do |acc, item|
-      acc += item
-      acc
+    list.inject do |result, item|
+      result += item
+      result
     list
 
 String representation
