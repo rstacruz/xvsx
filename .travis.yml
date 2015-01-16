@@ -10,3 +10,4 @@ scripts:
 env:
   global:
     - GH_REF: "github.com/rstacruz/xvsx.git"
+    - CI: 1
