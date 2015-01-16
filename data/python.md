@@ -27,7 +27,7 @@ Functions
 
 ### Default values
 
-    def greet(name = 'Larry')
+    def greet(name = 'Larry'):
 
 ### Splat
 
@@ -57,7 +57,7 @@ Classes
 ### Defining classes
 
     class Shape:
-      def area(self):
+      def get_area(self):
         return width * height
 
 ### Basic instanciation
@@ -83,4 +83,40 @@ Classes
       def __init__(self):
         super
         # other stuff here
+
+Methods
+-------
+
+### Defining
+
+    class MyClass:
+      def method(self):
+        # ...
+
+`self` is a reference to the instance.
+
+### Class methods
+
+    class MyClass:
+      @classmethod
+      def method(cls):
+        # ...
+
+### Running a method with an arbitrary name
+
+    getattr(obj, 'method_name')(arg1, arg2)
+
+Arrays
+------
+
+### Initializing
+
+    list = []
+    list = ["a", "b", "c", "d", "e"]
+
+Assume all examples start with this.
+
+### Accessing
+
+    list[0]  # "a"
 

@@ -107,7 +107,7 @@ Methods
       // ...
     }
 
-### Static methods
+### Class methods
 
     MyClass.method = function () {
       // ...
@@ -140,8 +140,6 @@ Arrays
     list = [];
     list = ["a", "b", "c", "d", "e"];
 
-Assume all examples start with this.
-
 ### Accessing
 
     list[0]  // "a"
@@ -152,31 +150,34 @@ Assume all examples start with this.
 
 ### Adding items
 
-    list.push(X);          // [_, _, _, _, _, X]
-    list.unshift(X);       // [X, _, _, _, _, _]
-    list.splice(2, 0, X);  // [_, _, X, _, _, _]
+    list.unshift(X);       // [X _ _ _ _]
+    list.splice(2, 0, X);  // [_ _ X _ _]
+    list.push(X);          // [_ _ _ _ X]
 
 ### Removing items
 
-    // last
-    list.pop()    // [e]
-    list          // [a, b, c, d]
-
     // first
-    list.shift()  // [a]
-    list          // [b, c, d, e]
+    list.shift()      //  a
+    list              // [  b c d e]
+
+    // middle
+    list.splice(2,1)  //     [c]
+    list              // [a b   d e]
+
+    // last
+    list.pop()        //          e 
+    list              // [a b c d  ]
+
+### Removing ranges
+
+    list.splice(2, 2)  // [    c d  ]
+    list               // [a b     e]
 
 ### Subsets
 
-    list.slice(0, 1)  // [a]
-    list.slice(1)     // [b, c, d, e]
-    list.slice(3, 4)  // [c]
-
-### Subsets (destructive)
-
-    re = list.splice(3, 4);
-    // re   = [e]
-    // list = [a, b, d, e]
+    list.slice(0, 1)  // [a        ]
+    list.slice(1)     // [  b c d e]
+    list.slice(2, 1)  // [    c    ]
 
 ### Checking for presence
 

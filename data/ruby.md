@@ -155,7 +155,7 @@ Methods
       end
     end
 
-### Static methods
+### Class methods
 
     class MyClass
       def self.method
@@ -194,8 +194,6 @@ Arrays
     list = []
     list = ["a", "b", "c", "d", "e"]
 
-Assume all examples start with this.
-
 ### Accessing
 
     list[0]  # "a"
@@ -214,31 +212,34 @@ Assume all examples start with this.
 
 ### Adding items
 
-    list << X        # [_, _, _, _, _, X]
-    list.unshift X   # [X, _, _, _, _, _]
-    list[2..0] = X   # [_, _, X, _, _, _]
+    list.unshift X    # [X _ _ _ _]
+    list.insert 2, X  # [_ _ X _ _]
+    list << X         # [_ _ _ _ X]
 
 ### Removing items
 
-    # last
-    list.pop     # e
-    list         # [a, b, c, d]
-
     # first
-    list.shift   # a
-    list         # [b, c, d, e]
+    list.shift     #  a
+    list           # [  b c d e]
+
+    # middle
+    list.delete 2  #      c
+    list           # [a b   d e]
+
+    # last
+    list.pop       #          e
+    list           # [a b c d  ]
+
+### Removing ranges
+
+    list.slice!(2...4)  # [    c d  ]
+    list                # [a b     e]
 
 ### Subsets
 
-    list[0...1]  # [a]
-    list[1..-1]  # [b, c, d, e]
-    list[3...4]  # [c]
-
-### Subsets (destructive)
-
-    re = list.slice!(3...4)
-    # re   = [c]
-    # list = [a, b, d, e]
+    list[0...1]  # [a        ]
+    list[1..-1]  # [  b c d e]
+    list[2...3]  # [    c    ]
 
 ### Checking for presence
 
