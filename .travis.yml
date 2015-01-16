@@ -3,7 +3,7 @@ notifications:
   email:
    - dropbox+travis@ricostacruz.com
 
-scripts:
+script:
   - npm test
   - bash ./support/deploy-to-gh-pages.sh
 
