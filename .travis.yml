@@ -9,5 +9,6 @@ script:
 
 env:
   global:
+    - secure: "cdsBCarfJ47g0UJdmqrisn+bOia2ARpQrc9HejYRVcKFNnXMEI2x4i9NGragPEexpHkAllmR7cT9TxxvpYP0RQJnHMWmuvKHn9QNjZCyDvEsI2b74D1PK0viOxdvd/60cTxLafmbZqPnl90ZzcMxhSVAcXpgpPWkEsGoJVNCkjE="
     - GH_REF: "github.com/rstacruz/xvsx.git"
     - CI: 1
