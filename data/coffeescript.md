@@ -35,5 +35,7 @@ The last statement's value is always returned.
 
 ### Splat
 
-    work = (hi, names...) ->
-      # names == ['Moe', 'Larry']
+    greet = (hi, names...) ->
+
+    greet 'hi', 'Moe', 'Curly'
+    # names == ['Moe', 'Curly']

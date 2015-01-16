@@ -56,8 +56,17 @@ The last statement's value is always returned.
 ### Splat
 
     def greet(hi, *names)
-      # names == ['Moe', 'Curly']
     end
+
+    greet('hi', 'Moe', 'Curly')
+    # names == ['Moe', 'Curly']
+
+### Keyword arguments
+
+    def greet(options = {})
+    end
+
+    greet name: "Moe", time: "now"
 
 Variables
 ---------

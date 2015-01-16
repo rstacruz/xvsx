@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "build": "make",
-    "start": "make && watch make src --wait=0.2 & serveur -R public --compress"
+    "start": "make && watch make src --wait=0.2 & serveur -R public --compress --port ${PORT:-3000}"
   },
   "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
   "license": "MIT",

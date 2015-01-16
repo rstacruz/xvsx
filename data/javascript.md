@@ -31,8 +31,10 @@ Functions
 
     function work(hi) {
       var names = [].slice.call(arguments, 1);
-      // arguments == ['Moe', 'Larry']
     }
+
+    greet('hi', 'Moe', 'Curly');
+    // names == ['Moe', 'Curly']
 
 Variables
 ---------
