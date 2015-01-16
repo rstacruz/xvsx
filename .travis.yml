@@ -5,7 +5,7 @@ notifications:
 
 scripts:
   - npm test
-  # - bash ./support/deploy-to-gh-pages.sh
+  - bash ./support/deploy-to-gh-pages.sh
 
 env:
   global:
