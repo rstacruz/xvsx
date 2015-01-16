@@ -31,6 +31,7 @@
     "ractivate": "^0.2.0",
     "ractive": "^0.6.1",
     "ractive-ractive": "^0.4.4",
+    "stylus": "^0.49.3",
     "superagent": "^0.21.0",
     "uglify-js": "^2.4.16",
     "underscore": "^1.7.0"
