@@ -7,6 +7,7 @@ all: data assets
 	@echo "\033[32m✓\033[0m"
 
 watch:
+	mkdir -p public
 	${bin}/multiexec \
 		"${bin}/watch make src" \
 		"cd public && ../${bin}/browser-sync start --server --files='*'"
