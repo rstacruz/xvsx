@@ -93,6 +93,9 @@ JavaScript doesn't have classes, it has prototypes.
 
     Rectangle.prototype =
       Object.create(Shape.prototype);
+    Rectangle.prototype.constructor = Shape;
+
+[Object.create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) is not supported on IE8.
 
 ### Type checking
 

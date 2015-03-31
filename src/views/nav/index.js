@@ -10,7 +10,7 @@ module.exports = Ractive.extend({
 
   data: {
     dropdownVisible: false,
-    compact: false
+    compact: true
   },
 
   toggleDropdown: function () {
