@@ -11,10 +11,12 @@
   "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.5.0",
     "chai": "^1.10.0",
     "exec": "^0.1.3",
     "mocha": "^2.1.0",
     "mocha-clean": "^0.4.0",
+    "multiexec": "0.0.3",
     "serveur": "^1.1.1",
     "watch": "^0.13.0"
   },

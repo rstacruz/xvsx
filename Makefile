@@ -7,7 +7,9 @@ all: data assets
 	@echo "\033[32m✓\033[0m"
 
 watch:
-	multiexec "${bin}/watch make src" "cd public && browser-sync start --server --files='*'"
+	${bin}/multiexec \
+		"${bin}/watch make src" \
+		"cd public && ../${bin}/browser-sync start --server --files='*'"
 
 #
 # data: build json from .md files
