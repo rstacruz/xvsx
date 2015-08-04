@@ -1,5 +1,5 @@
-var pluck = require('underscore').pluck
-var compact = require('underscore').compact
+var pluck = require('lodash.pluck')
+var compact = require('lodash.compact')
 
 /*
  * Returns
