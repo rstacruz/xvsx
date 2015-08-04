@@ -402,14 +402,13 @@ Strings
     "Hi".gsub(/o/, "ello")  # replace all
     str.gsub!(/o/, "ello")  # in place
 
-Hash tables
+Dictionaries
 -----------
 
 ### Type
 
     Hash
-
-See: [Hash](http://www.ruby-doc.org/core-2.2.0/Hash.html).
+    # doc: http://www.ruby-doc.org/core-2.2.0/Hash.html
 
 ### Literals
 
@@ -440,10 +439,9 @@ See: [Hash](http://www.ruby-doc.org/core-2.2.0/Hash.html).
 ### Iterating
 
     colors.each do |key, val|
+      # doc: http://www.ruby-doc.org/core-2.2.0/Hash.html#method-i-each
       # ...
     end
-
-See: [Hash#each](http://www.ruby-doc.org/core-2.2.0/Hash.html#method-i-each)
 
 Iterables
 ---------

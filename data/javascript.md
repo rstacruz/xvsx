@@ -333,7 +333,7 @@ Strings
 
     "Hi".replace(/i/g, "ello")  // "Hello"
 
-Hash tables
+Dictionaries
 -----------
 
 ### Type
