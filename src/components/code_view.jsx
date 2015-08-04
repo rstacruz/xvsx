@@ -4,82 +4,92 @@ import React from 'react'
 import { connectToStores } from 'uflux'
 
 import codePresenter from '../presenters/code_presenter'
-import LanguageStore from '../stores/language_store'
 import SettingsStore from '../stores/settings_store'
 
 const CodeView = connectToStores(React.createClass({
   propTypes: {
     data: React.PropTypes.object,
     settings: React.PropTypes.object,
-    selected: React.PropTypes.arrayOf(React.PropTypes.string)
   },
 
   statics: {
-    getStores: () => [ LanguageStore, SettingsStore ],
+    getStores: () => [ SettingsStore ],
     getPropsFromStores: () => {
       return {
-        selected: LanguageStore.getState(),
         settings: SettingsStore.getState()
       }
     }
   },
 
-  getDefaultProps () {
-    return { data: window.Data }
+  getComputedProps (props) {
+    let selected = [ props.params.left, props.params.right ]
+    return {
+      selected,
+      data: codePresenter(this.props.data, selected)
+    }
   },
 
   getInitialState () {
-    return { }
+    return { ...this.getComputedProps(this.props) }
+  },
+
+  componentWillReceiveProps (props) {
+    this.setState(this.getComputedProps(props))
   },
 
   render () {
-    var data = codePresenter(this.props.data, this.props.selected)
-    return (<div
-      className={`-layout-${this.props.settings.layout}`}
-    >
-      {map(data.sections, (section, i) => {
-        return this.renderSection(section, i)
-      })}
-    </div>)
+    return (
+      <div
+        className={`-layout-${this.props.settings.layout}`}
+      >
+        {map(this.state.data.sections, (section, i) => {
+          return this.renderSection(section, i)
+        })}
+      </div>
+    )
   },
 
   renderSection (section, i) {
-    return (<section key={i}
-      className={c('section', 'with-' + this.props.selected.length)}
-    >
-      <h2 className='title'>{section.title}</h2>
+    return (
+      <section key={i}
+        className={c('section', 'with-' + this.state.selected.length)}
+      >
+        <h2 className='title'>{section.title}</h2>
 
-      {map(section.subsections, (sub, j) => {
-        return (<div className='article' key={j}>
-          <h3 className='article-head'>{sub.title}</h3>
-          {this.renderArticleCode(sub)}
-        </div>)
-      })}
-    </section>)
+        {map(section.subsections, (sub, j) => {
+          return (<div className='article' key={j}>
+            <h3 className='article-head'>{sub.title}</h3>
+            {this.renderArticleCode(sub)}
+          </div>)
+        })}
+      </section>
+    )
   },
 
   renderArticleCode (sub) {
-    return (<div
-      className={c('article-code', { '-with-text': sub.hasText })}
-    >
-      <table>
-        <tr>
-          {map(sub.languages, (lang) => {
-            if (lang.code) {
-              return (<td>
-                <pre
-                  className={`hljs lang-${lang.language}`}
-                  dangerouslySetInnerHTML={{ __html: lang.code }} />
-              </td>)
-            } else {
-              return (<td className='empty'>
-                <span className='nil'></span>
-              </td>)
-            }
-          })}
-        </tr>
-      </table>
-    </div>)
+    return (
+      <div
+        className={c('article-code', { '-with-text': sub.hasText })}
+      >
+        <table>
+          <tr>
+            {map(sub.languages, (lang) => {
+              if (lang.code) {
+                return (<td>
+                  <pre
+                    className={`hljs lang-${lang.language}`}
+                    dangerouslySetInnerHTML={{ __html: lang.code }} />
+                </td>)
+              } else {
+                return (<td className='empty'>
+                  <span className='nil'></span>
+                </td>)
+              }
+            })}
+          </tr>
+        </table>
+      </div>
+    )
   }
 }))
 

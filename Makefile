@@ -1,7 +1,7 @@
 PORT ?= 3000
 NODE_ENV := development
 bin        := ./node_modules/.bin
-browserify := $(bin)/browserify -t [ babelify --stage 0 ] --extension .jsx
+b_options  := -t [ babelify --stage 0 ] --extension .jsx
 b_external := -x react -x classnames -x uflux -x lodash
 b_vendor   := -r react -r classnames -r uflux -r lodash
 stylus     := $(bin)/stylus -u nib
@@ -57,16 +57,21 @@ public/%.css: src/%.styl
 	@$(stylus) $< -p > $@
 
 public/vendor.js: Makefile
+ifeq ($(NODE_ENV),development)
+	#  browserify  $@ (dev)
+	$(bin)/browserify $(b_vendor) -o $@
+else
 	#  browserify  $@
 	$(bin)/browserify $(b_vendor) | $(uglify) -m -c > $@
+endif
 
 public/%.js: src/%.js
 ifeq ($(NODE_ENV),development)
 	#  browserify  $@ (dev)
-	$(browserify) --debug $(b_external) $< -o $@
+	$(bin)/browserifyinc $(b_options) --debug $(b_external) $< -o $@
 else
 	#  browserify  $@
-	$(browserify) $(b_external) $< | $(uglify) -m -c > $@
+	$(bin)/browserify $(b_options) $(b_external) $< | $(uglify) -m -c > $@
 endif
 
 .PHONY: data assets all

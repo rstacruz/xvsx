@@ -1,5 +1,6 @@
 import { Store } from 'uflux'
 import App from '../dispatcher'
+import Router from '../router'
 
 export default new Store(App, [
   'ruby', 'javascript'
@@ -13,17 +14,12 @@ export default new Store(App, [
 
   'language:set': (langs, idx, lang) => {
     App.emitAfter('language:renav')
-
-    // replace it
-    if (lang) langs[idx] = lang
-    else langs.splice(idx, 1)
-
-    // if it's the same, collapse into one
-    if (langs[0] === langs[1] && langs.length === 2) {
-      return [ langs[0] ]
-    }
-
+    langs[idx] = lang
     return langs
+  },
+
+  'language:confirm': (langs, newLangs) => {
+    return newLangs
   },
 
   /**
@@ -31,6 +27,6 @@ export default new Store(App, [
    */
 
   'language:renav': (langs) => {
-    console.log('renav:', '/' + langs.join('/'))
+    Router.replaceWith('compare', { left: langs[0], right: langs[1] })
   }
 })
