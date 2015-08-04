@@ -4,7 +4,6 @@ bin        := ./node_modules/.bin
 browserify := $(bin)/browserify -t [ babelify --stage 0 ] --extension .jsx
 b_external := -x react -x classnames -x uflux -x lodash
 b_vendor   := -r react -r classnames -r uflux -r lodash
-    "underscore": "^1.7.0",
 stylus     := $(bin)/stylus -u nib
 uglify     := $(bin)/uglifyjs
 

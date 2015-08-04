@@ -32,14 +32,6 @@ let Nav = React.createClass({
     }
   },
 
-  toggleDropdown () {
-    this.setState({ dropdownVisible: !this.state.dropdownVisible })
-  },
-
-  toggleCompact () {
-    App.emit('settings:toggle_layout')
-  },
-
   render () {
     return (<div className='navbar'>
       <div className={c('dropdowns', {
@@ -70,7 +62,43 @@ let Nav = React.createClass({
         <button onClick={this.toggleCompact}>Compact</button>
       </div>
     </div>)
-  }
+  },
+
+  componentDidMount () {
+    document.body.addEventListener('click', this.closeDropdown)
+  },
+
+  componentWillUnmount () {
+    document.body.removeEventListener('click', this.closeDropdown)
+  },
+
+  /**
+   * Toggles the dropdown. If `val` is given, it'll be set to that.
+   */
+
+  toggleDropdown (val) {
+    if (typeof val === 'undefined') {
+      val = !this.state.dropdownVisible
+    }
+    this.setState({ dropdownVisible: val })
+  },
+
+  /**
+   * Closes the dorpdown.
+   */
+
+  closeDropdown () {
+    this.toggleDropdown(false)
+  },
+
+  /**
+   * Toggles compact mode.
+   */
+
+  toggleCompact () {
+    App.emit('settings:toggle_layout')
+  },
+
 })
 
 Nav = connectToStores(Nav)
