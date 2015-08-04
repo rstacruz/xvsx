@@ -50,6 +50,12 @@ Variables
 
 The global context is in `window` (browser) or `global` (Node.js).
 
+### Assignment
+
+    myvar = 1;
+
+This assumes `myvar` was declared using `var`.
+
 Classes
 -------
 
@@ -80,7 +86,7 @@ JavaScript doesn't have classes, it has prototypes.
     }
 
     Shape.prototype.setDimensions =
-      function(width, height) {
+      function (width, height) {
         this.width = width;
         this.height = height;
       };
@@ -169,7 +175,7 @@ Arrays
     list              //=> [a b   d e]
     // ---
     //! Last:
-    list.pop()        //=>          e 
+    list.pop()        //=>          e
     list              //=> [a b c d  ]
 
 ### Removing ranges
@@ -212,7 +218,7 @@ Types
 ### Type checking
 
     if (typeof obj === 'string')
-    // also: object, function, undefined
+    //! also: object, function, undefined
 
     if (Array.isArray(obj))
 
@@ -381,8 +387,11 @@ Modules
 
 ### Exporting
 
-    exports.item = /* ... */;
-    module.exports = { /* ... */ };
+    module.exports = function () { /* ... */ };
+
+### Exporting symbols
+
+    exports.item = function () { /* ... */ };
 
 String representation
 ---------------------

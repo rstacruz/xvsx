@@ -81,6 +81,10 @@ See: [Global variables](http://www.rubyist.net/~slagell/ruby/globalvars.html).
 
     $gvar = 1
 
+### Assignment
+
+    myvar = 1
+
 ### Safe assignment
 
     myvar ||= 1
@@ -92,6 +96,13 @@ See: [Global variables](http://www.rubyist.net/~slagell/ruby/globalvars.html).
 ### Class variables
 
     @@var
+
+Destructuring
+------------
+
+### Assignments
+
+   first, last = ['Nikola', 'Tesla']
 
 Classes
 -------

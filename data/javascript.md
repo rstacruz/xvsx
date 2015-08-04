@@ -53,6 +53,37 @@ See: [Block scoping](http://babeljs.io/docs/learn-es2015/#let-const).
 
 The global context is in `window` (browser) or `global` (Node.js).
 
+### Assignment
+
+    myvar = 1;
+
+This assumes `myvar` was declared using `var`.
+
+Destructuring
+-------------
+
+### Assignments
+
+    let [first, last] = ['Nikola', 'Tesla'];
+    let {title, artist} = { title: 'Help', artist: 'Beatles' };
+
+### Spreading
+
+    let [first, ...rest, last ] = list;
+
+### Loops
+
+    for (let {title, artist} in songs) {
+    }
+
+### Functions
+
+    function greet({ name, greeting }) {
+      // ...
+    }
+
+    greet({ name: 'Larry', greeting: 'Ahoy' });
+
 Classes
 -------
 
@@ -135,7 +166,7 @@ Singletons
 ### Singleton pattern
 
     var AppConfig = {
-      read: function() {
+      read: function () {
         // ...
       }
     };
@@ -175,7 +206,7 @@ Arrays
     list              //=> [a b   d e]
     // ---
     //! Last:
-    list.pop()        //=>          e 
+    list.pop()        //=>          e
     list              //=> [a b c d  ]
 
 ### Removing ranges
@@ -363,6 +394,28 @@ Dictionaries
 
     Object.keys(colors)
 
+### Shorthand
+
+    exports = { read, write };
+    //! Same as { read: read, write: write }
+
+### Computed property names
+
+    result = {
+      [ 'prop_' + n ]: 42
+    }
+
+### Setters and getters
+
+    obj = {
+      get hidden () {
+        return this.visibliity === 'hidden';
+      }
+      set hidden (val) {
+        this.visibility = val ? 'hidden' : 'visible';
+      }
+    }
+
 ### Iterating
 
     for (var key in colors) {
@@ -392,8 +445,11 @@ Modules
 
 ### Exporting
 
-    exports.item = /* ... */;
-    module.exports = { /* ... */ };
+    export default function () { /* ... */ };
+
+### Exporting symbols
+
+    export item = function () { /* ... */ };
 
 String representation
 ---------------------
