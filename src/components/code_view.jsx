@@ -3,30 +3,28 @@ import map from 'dom101/map'
 import React from 'react'
 import { connectToStores } from 'uflux'
 
-import codePresenter from '../presenters/code_presenter'
 import SettingsStore from '../stores/settings_store'
+import DocStore from '../stores/doc_store'
 
-const CodeView = connectToStores(React.createClass({
+let CodeView = React.createClass({
   propTypes: {
-    data: React.PropTypes.object,
+    docs: React.PropTypes.object,
     settings: React.PropTypes.object,
   },
 
   statics: {
-    getStores: () => [ SettingsStore ],
+    getStores: () => [ SettingsStore, DocStore ],
     getPropsFromStores: () => {
       return {
-        settings: SettingsStore.getState()
+        settings: SettingsStore.getState(),
+        docs: DocStore.getState()
       }
     }
   },
 
   getComputedProps (props) {
     let selected = [ props.params.left, props.params.right ]
-    return {
-      selected,
-      data: codePresenter(this.props.data, selected)
-    }
+    return { selected }
   },
 
   getInitialState () {
@@ -42,7 +40,7 @@ const CodeView = connectToStores(React.createClass({
       <div
         className={`-layout-${this.props.settings.layout}`}
       >
-        {map(this.state.data.sections, (section, i) => {
+        {map(this.props.docs.sections, (section, i) => {
           return this.renderSection(section, i)
         })}
       </div>
@@ -110,6 +108,8 @@ const CodeView = connectToStores(React.createClass({
       </div>
     )
   }
-}))
+})
+
+CodeView = connectToStores(CodeView)
 
 export default CodeView

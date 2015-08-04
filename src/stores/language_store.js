@@ -18,6 +18,14 @@ export default new Store(App, [
     return langs
   },
 
+  /**
+   * Emitted when languages are changed
+   * 
+   *     'language:confirm': (state, langs) => {
+   *       // langs == ['ruby', 'javascript']
+   *     }
+   */
+
   'language:confirm': (langs, newLangs) => {
     return newLangs
   },

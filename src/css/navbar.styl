@@ -68,6 +68,9 @@
     background: $accent2
     margin-right: 10px
 
+  :focus
+    outline: 0
+
 /*
  * dropdown
  */
@@ -84,6 +87,7 @@
     opacity: 1
 
   &.-hidden
+    pointer-events: none
     transform: translate(0, 100px)
     opacity: 0
 
