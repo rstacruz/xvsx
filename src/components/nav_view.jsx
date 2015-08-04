@@ -61,7 +61,7 @@ let Nav = React.createClass({
         <div className='container'>
           {map(this.state.selected, (lang, name, i) => {
             return (
-              <div className={`lang -i${i + 1}`} key={lang}>
+              <div className={`lang -i${i + 1}`} key={i}>
                 <button
                   className={`lang-button -i${i + 1}`}
                   onClick={this.toggleDropdown}
