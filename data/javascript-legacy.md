@@ -1,7 +1,8 @@
-JavaScript
-==========
+JavaScript (legacy)
+==================
 
 * Bundle: programming
+* Highlight: javascript
 
 Functions
 ---------
@@ -54,11 +55,14 @@ Classes
 
 ### Defining classes
 
-    class Shape {
-      area () {
-        return this.width * this.height;
-      }
+    function Shape() {
     }
+
+    Shape.prototype.area = function () {
+      return this.width * this.height;
+    };
+
+JavaScript doesn't have classes, it has prototypes.
 
 ### Basic instanciation
 
@@ -66,26 +70,33 @@ Classes
 
 ### Constructors
 
-    class Shape {
-      constructor () {
-        // ...
-      }
+    function Shape() {
+      // ...
     }
 
 ### Attributes
 
-    class Shape {
-      setDimensions (width, height) {
+    function Shape() {
+    }
+
+    Shape.prototype.setDimensions =
+      function(width, height) {
         this.width = width;
         this.height = height;
-      }
-    }
+      };
 
 ### Inheritance
 
-    class Rectangle extends Shape {
+    function Rectangle() {
+      Shape.apply(this, arguments);
       // ...
     }
+
+    Rectangle.prototype =
+      Object.create(Shape.prototype);
+    Rectangle.prototype.constructor = Shape;
+
+[Object.create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) is not supported on IE8.
 
 ### Type checking
 

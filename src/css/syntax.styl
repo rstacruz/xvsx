@@ -23,3 +23,12 @@
   .hljs-regexp
     color: $accent2
 
+  .hljs-ellipsis
+    &:before
+      color: mix($c, white, 50%)
+      content: '···'
+      background: rgba(#888, 0.1)
+      border-radius: 2px
+      padding: 0 5px
+      font-size: 0.9em
+

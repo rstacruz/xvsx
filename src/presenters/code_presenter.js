@@ -2,7 +2,15 @@ var pluck = require('lodash').pluck
 var compact = require('lodash').compact
 
 /*
- * Returns
+ * Usage:
+ *
+ *     data = {
+ *       bundles: { ... },
+ *       languages: { ... }
+ *     }
+ *     codePresenter(data, ['javascript', 'ruby'])
+ *     
+ * Returns:
  *
  *     languages:
  *     sections:
@@ -46,7 +54,14 @@ module.exports = function (data, languages) {
         }
       })
 
+      // if the subsection has no code, suck it
       if (compact(pluck(langs, 'code')).length === 0) {
+        return
+      }
+
+      // if it has the same code on both, suck it
+      // this happens when comparing javascript with javascript-legacy
+      if (langs[0].code === langs[1].code) {
         return
       }
 
