@@ -12,7 +12,7 @@ var compact = require('lodash').compact
  *     
  * Returns:
  *
- *     languages:
+ *     languages: ['javascript', 'ruby']
  *     sections:
  *       - title: '...'
  *         subsections:

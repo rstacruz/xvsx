@@ -38,7 +38,7 @@ let CodeView = React.createClass({
   render () {
     return (
       <div
-        className={`-layout-${this.props.settings.layout}`}
+        className={`code-panel -layout-${this.props.settings.layout}`}
       >
         {map(this.props.docs.sections, (section, i) => {
           return this.renderSection(section, i)
@@ -111,5 +111,4 @@ let CodeView = React.createClass({
 })
 
 CodeView = connectToStores(CodeView)
-
 export default CodeView

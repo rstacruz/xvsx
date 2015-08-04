@@ -69,7 +69,7 @@ Destructuring
 
 ### Spreading
 
-    let [first, ...rest, last ] = list;
+    let [ first, ...rest, last ] = list;
 
 ### Loops
 
