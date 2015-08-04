@@ -59,6 +59,7 @@ describe('bundle.outlinify', function () {
       "# JavaScript",
       "",
       "* Bundle: programming",
+      "* Highlight: javascript",
       "",
       "## Variables",
       "### Defining variables",

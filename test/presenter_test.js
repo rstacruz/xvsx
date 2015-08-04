@@ -43,7 +43,7 @@ describe('Presenter:', function () {
           ruby: {
             'Variables': {
               'Defining': { code: 'x = 2' },
-              'Assigning': { code: 'x = 2' }
+              'Assigning': { code: 'x = 2;' }
             },
             'Classes': {
               'Constructor': { code: 'class MyClass' }
