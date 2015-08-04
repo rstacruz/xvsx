@@ -7,15 +7,18 @@
 
   $height = 50px
 
-  background: mix($bg, white, 50%)
-
-  height: $height
-  line-height: $height - 1px
-  box-shadow: 0 0 1px rgba(black, 0.1)
+  .controls
+    position: relative
+    z-index: 5
+    background: mix($bg, white, 50%)
+    height: $height
+    line-height: $height - 1px
+    box-shadow: 0 0 1px rgba(black, 0.1)
 
   .right
     position: absolute
-    right: 0
+    right: 15px
+    font-size: 0.9em
     top: 0
 
   .container
@@ -27,15 +30,11 @@
     position: relative
 
   .dropdowns
-    &.-visible
-      display: block
-    &.-hidden
-      display: none
-    &
-      position: absolute
-      bottom: $height
-      left: 0
-      width: 100%
+    position: absolute
+    bottom: $height
+    left: 0
+    width: 100%
+    z-index: 1
 
   .lang-button
     width: $column
@@ -73,11 +72,20 @@
  * dropdown
  */
 
-.navbar .dropdowns
+.mega-dropdown
   &
     overflow: hidden
-    background: rgba($slate - 50%, 95%)
-    box-shadow: 0 1px 2px rgba(black, 0.1)
+    background: rgba($slate - 50%, 100%)
+    box-shadow: 0 1px 15px rgba(black, 0.1)
+    transition: transform 250ms ease, opacity 250ms ease
+
+  &.-visible
+    transform: translate(0, 0)
+    opacity: 1
+
+  &.-hidden
+    transform: translate(0, 100px)
+    opacity: 0
 
   .lang-dropdown
     width: 50%
@@ -91,7 +99,6 @@
   &
     min-width: 190px
     font-size: 0.9em
-    border-radius: 3px
     padding: 15px 0
 
   ul, li

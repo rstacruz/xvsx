@@ -57,6 +57,7 @@ const LangDropdownView = React.createClass({
   updateLanguage (i, lang) {
     return function (e) {
       e.preventDefault()
+      e.nativeEvent.stopImmediatePropagation()
       App.emit('language:set', i, lang)
     }
   }

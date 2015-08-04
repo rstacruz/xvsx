@@ -30,8 +30,17 @@ let Nav = React.createClass({
   },
 
   render () {
-    return (<div className='navbar'>
-      <div className={c('dropdowns',
+    return (
+      <div className='navbar'>
+        {this.renderDropdowns()}
+        {this.renderControls()}
+      </div>
+    )
+  },
+
+  renderDropdowns () {
+    return (
+      <div className={c('dropdowns', 'mega-dropdown',
         this.state.dropdownVisible ? '-visible' : '-hidden'
       )}>
         <div className='container'>
@@ -43,21 +52,32 @@ let Nav = React.createClass({
           })}
         </div>
       </div>
+    )
+  },
 
-      <div className='container'>
-        {map(this.state.selected, (lang, name, i) => {
-          return (<div className={`lang -i${i + 1}`} key={i}>
-            <button className={`lang-button -i${i + 1}`} onClick={this.toggleDropdown}>
-              {this.props.data.languages[lang].title}
-            </button>
-          </div>)
-        })}
-      </div>
+  renderControls () {
+    return (
+      <div className='controls'>
+        <div className='container'>
+          {map(this.state.selected, (lang, name, i) => {
+            return (
+              <div className={`lang -i${i + 1}`} key={lang}>
+                <button
+                  className={`lang-button -i${i + 1}`}
+                  onClick={this.toggleDropdown}
+                >
+                  {this.props.data.languages[lang].title}
+                </button>
+              </div>
+            )
+          })}
+        </div>
 
-      <div className='right'>
-        <button onClick={this.toggleCompact}>Compact</button>
+        <div className='right'>
+          <button onClick={this.toggleCompact}>Compact</button>
+        </div>
       </div>
-    </div>)
+    )
   },
 
   componentDidMount () {
