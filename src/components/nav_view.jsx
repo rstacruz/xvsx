@@ -3,8 +3,9 @@ import c from 'classnames'
 import map from 'dom101/map'
 import { connectToStores } from 'uflux'
 
+import App from '../dispatcher'
 import LanguageStore from '../stores/language_store'
-import LangDropdownView from './lang_dropdown_view'
+import LangDropdownView from '../components/lang_dropdown_view'
 
 let Nav = React.createClass({
   propTypes: {
@@ -27,8 +28,7 @@ let Nav = React.createClass({
 
   getInitialState () {
     return {
-      dropdownVisible: false,
-      compact: false
+      dropdownVisible: false
     }
   },
 
@@ -37,7 +37,7 @@ let Nav = React.createClass({
   },
 
   toggleCompact () {
-    this.setState({ compact: !this.state.compact })
+    App.emit('settings:toggle_layout')
   },
 
   render () {
@@ -67,7 +67,7 @@ let Nav = React.createClass({
       </div>
 
       <div className='right'>
-        <button>Compact</button>
+        <button onClick={this.toggleCompact}>Compact</button>
       </div>
     </div>)
   }

@@ -4,17 +4,24 @@ import React from 'react'
 import { connectToStores } from 'uflux'
 
 import codePresenter from '../presenters/code_presenter'
-import Language from '../stores/language_store'
+import LanguageStore from '../stores/language_store'
+import SettingsStore from '../stores/settings_store'
 
 const CodeView = connectToStores(React.createClass({
   propTypes: {
     data: React.PropTypes.object,
+    settings: React.PropTypes.object,
     selected: React.PropTypes.arrayOf(React.PropTypes.string)
   },
 
   statics: {
-    getStores: () => [ Language ],
-    getPropsFromStores: () => { return { selected: Language.getState() } }
+    getStores: () => [ LanguageStore, SettingsStore ],
+    getPropsFromStores: () => {
+      return {
+        selected: LanguageStore.getState(),
+        settings: SettingsStore.getState()
+      }
+    }
   },
 
   getDefaultProps () {
@@ -27,7 +34,9 @@ const CodeView = connectToStores(React.createClass({
 
   render () {
     var data = codePresenter(this.props.data, this.props.selected)
-    return (<div>
+    return (<div
+      className={`-layout-${this.props.settings.layout}`}
+    >
       {map(data.sections, (section, i) => {
         return this.renderSection(section, i)
       })}

@@ -6,6 +6,7 @@ remove(document.getElementById('loader'))
 window.App = {
   Dispatcher: require('./dispatcher'),
   LanguageStore: require('./stores/language_store'),
+  SettingsStore: require('./stores/settings_store'),
   TitleStore: require('./stores/title_store')
 }
 
