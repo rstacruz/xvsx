@@ -1,0 +1,24 @@
+.loading-indicator
+  color: $liteslate
+  padding: 24px
+  font-size: 1.2em
+
+  .spin
+    display: inline-block
+    vertical-align: middle
+
+    width: 16px
+    height: 16px
+    margin-right: 16px
+
+    border: solid 2px transparent
+    border-radius: 50%
+    border-top-color: $accent2
+    border-left-color: $accent2
+    animation: spin 800ms linear infinite
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
