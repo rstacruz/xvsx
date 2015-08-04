@@ -1,9 +1,10 @@
 PORT ?= 3000
-ENV := development
+NODE_ENV := development
 bin        := ./node_modules/.bin
 browserify := $(bin)/browserify -t [ babelify --stage 0 ] --extension .jsx
-b_external := -x react -x classnames -x uflux
-b_vendor   := -r react -r classnames -r uflux
+b_external := -x react -x classnames -x uflux -x lodash
+b_vendor   := -r react -r classnames -r uflux -r lodash
+    "underscore": "^1.7.0",
 stylus     := $(bin)/stylus -u nib
 uglify     := $(bin)/uglifyjs
 
@@ -61,7 +62,7 @@ public/vendor.js: Makefile
 	$(bin)/browserify $(b_vendor) | $(uglify) -m -c > $@
 
 public/%.js: src/%.js
-ifeq ($(ENV),development)
+ifeq ($(NODE_ENV),development)
 	#  browserify  $@ (dev)
 	$(browserify) --debug $(b_external) $< -o $@
 else
