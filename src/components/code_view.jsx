@@ -76,13 +76,13 @@ const CodeView = connectToStores(React.createClass({
           <tr>
             {map(sub.languages, (lang) => {
               if (lang.code) {
-                return (<td>
+                return (<td key={lang.language}>
                   <pre
                     className={`hljs lang-${lang.language}`}
                     dangerouslySetInnerHTML={{ __html: lang.code }} />
                 </td>)
               } else {
-                return (<td className='empty'>
+                return (<td key={lang.language} className='empty'>
                   <span className='nil'></span>
                 </td>)
               }
@@ -101,7 +101,9 @@ const CodeView = connectToStores(React.createClass({
         <table>
           <tr>
             {map(sub.languages, (lang) => {
-              return <td dangerouslySetInnerHTML={{__html: lang.text}} />
+              return <td
+                key={lang.language}
+                dangerouslySetInnerHTML={{__html: lang.text}} />
             })}
           </tr>
         </table>

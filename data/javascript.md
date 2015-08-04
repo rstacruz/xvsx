@@ -253,7 +253,7 @@ Conditionals
       case "Tuesday":
       case "Wednesday":
         train();
-        break();
+        break;
 
       default:
         sleep();

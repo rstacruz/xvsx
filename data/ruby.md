@@ -208,12 +208,12 @@ Arrays
 
 ### Accessing
 
-    list[0]  # "a"
+    list[0] #=> "a"
 
 ### Shorthand
 
-    %w[red blue]  # [ "red", "blue" ]
-    %I[red blue]  # [ :red, :blue ]
+    %w[red blue]  #=> [ "red", "blue" ]
+    %I[red blue]  #=> [ :red, :blue ]
 
 ### Length
 
@@ -224,34 +224,34 @@ Arrays
 
 ### Adding items
 
-    list.unshift X    # [X _ _ _ _]
-    list.insert 2, X  # [_ _ X _ _]
-    list << X         # [_ _ _ _ X]
+    list.unshift X    #=> [X _ _ _ _]
+    list.insert 2, X  #=> [_ _ X _ _]
+    list << X         #=> [_ _ _ _ X]
 
 ### Removing items
 
     # first
-    list.shift     #  a
-    list           # [  b c d e]
+    list.shift     #=>  a
+    list           #=> [  b c d e]
 
     # middle
-    list.delete 2  #      c
-    list           # [a b   d e]
+    list.delete 2  #=>      c
+    list           #=> [a b   d e]
 
     # last
-    list.pop       #          e
-    list           # [a b c d  ]
+    list.pop       #=>          e
+    list           #=> [a b c d  ]
 
 ### Removing ranges
 
-    list.slice!(2...4)  # [    c d  ]
-    list                # [a b     e]
+    list.slice!(2...4)  #=> [    c d  ]
+    list                #=> [a b     e]
 
 ### Subsets
 
-    list[0...1]  # [a        ]
-    list[1..-1]  # [  b c d e]
-    list[2...3]  # [    c    ]
+    list[0...1]  #=> [a        ]
+    list[1..-1]  #=> [  b c d e]
+    list[2...3]  #=> [    c    ]
 
 ### Checking for presence
 
@@ -334,19 +334,19 @@ Numbers
 
 ### Rounding off
 
-    (2.5).to_i    # 2
-    (2.5).floor   # 2
-    (2.5).ceil    # 3
-    (2.5).round   # 3
+    (2.5).to_i    #=> 2
+    (2.5).floor   #=> 2
+    (2.5).ceil    #=> 3
+    (2.5).round   #=> 3
 
 ### Minimum and maximum
 
-    [2, 4].min   # 2
-    [2, 4].max   # 4
+    [2, 4].min   #=> 2
+    [2, 4].max   #=> 4
 
 ### Exponents
 
-    2**8   # 256
+    2**8   #=> 256
 
 ### Trigonometry
 
