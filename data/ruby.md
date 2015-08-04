@@ -112,7 +112,7 @@ Classes
 
     class Shape
       def initialize
-        # code here
+        # ...
       end
     end
 
@@ -130,12 +130,24 @@ Classes
 
 See: [Accessors](http://www.rubyist.net/~slagell/ruby/accessors.html). Also: `attr_reader` and `attr_writer`.
 
+### Setter/Getter
+
+    class Shape
+      def circumference
+        radius * Math::PI * 2
+      end
+
+      def circumference=(value)
+        self.radius = value / (Math::PI * 2)
+      end
+    end
+
 ### Inheritance
 
     class Rectangle < Shape
       def initialize
         super
-        # other stuff here
+        # ...
       end
     end
 

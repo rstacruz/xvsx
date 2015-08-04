@@ -24,7 +24,7 @@ data: public/data.js public/data.json
 
 public/data.json: $(shell find data -name '*.md')
 	#      bundle  $@
-	@node lib/bundle.js $^ > $@
+	@${bin}/babel-node lib/bundle.js $^ > $@
 
 public/data.js: public/data.json
 	#      bundle  $@

@@ -38,4 +38,4 @@ The last statement's value is always returned.
     greet = (hi, names...) ->
 
     greet 'hi', 'Moe', 'Curly'
-    # names == ['Moe', 'Curly']
+    #=> names == ['Moe', 'Curly']

@@ -1,5 +1,5 @@
-JavaScript
-==========
+JavaScript (ES2015)
+===================
 
 * Bundle: programming
 
@@ -34,7 +34,7 @@ Functions
     }
 
     greet('hi', 'Moe', 'Curly');
-    // names == ['Moe', 'Curly']
+    //=> names == ['Moe', 'Curly']
 
 Variables
 ---------
@@ -42,6 +42,11 @@ Variables
 ### Local variables
 
     var myvar = 1;
+    // ---
+    let myvar = 1;
+    const myvar = 1;
+
+See: [Block scoping](http://babeljs.io/docs/learn-es2015/#let-const).
 
 ### Global variables
 
@@ -78,6 +83,19 @@ Classes
       setDimensions (width, height) {
         this.width = width;
         this.height = height;
+      }
+    }
+
+### Setter/Getter
+
+    class Shape {
+      get circumference () {
+        return this.radius * Math.PI * 2
+      }
+
+      set circumference (value) {
+        this.radius = value / (Math.PI * 2)
+        return value
       }
     }
 
@@ -143,34 +161,34 @@ Arrays
 
 ### Adding items
 
-    list.unshift(X);       // [X _ _ _ _]
-    list.splice(2, 0, X);  // [_ _ X _ _]
-    list.push(X);          // [_ _ _ _ X]
+    list.unshift(X);       //=> [X _ _ _ _]
+    list.splice(2, 0, X);  //=> [_ _ X _ _]
+    list.push(X);          //=> [_ _ _ _ X]
 
 ### Removing items
 
     // first
-    list.shift()      //  a
-    list              // [  b c d e]
+    list.shift()      //=>  a
+    list              //=> [  b c d e]
 
     // middle
-    list.splice(2,1)  //     [c]
-    list              // [a b   d e]
+    list.splice(2,1)  //=> [    c    ]
+    list              //=> [a b   d e]
 
     // last
-    list.pop()        //          e 
-    list              // [a b c d  ]
+    list.pop()        //=>          e 
+    list              //=> [a b c d  ]
 
 ### Removing ranges
 
-    list.splice(2, 2)  // [    c d  ]
-    list               // [a b     e]
+    list.splice(2, 2)  //=> [    c d  ]
+    list               //=> [a b     e]
 
 ### Subsets
 
-    list.slice(0, 1)  // [a        ]
-    list.slice(1)     // [  b c d e]
-    list.slice(2, 1)  // [    c    ]
+    list.slice(0, 1)  //=> [a        ]
+    list.slice(1)     //=> [  b c d e]
+    list.slice(2, 1)  //=> [    c    ]
 
 ### Checking for presence
 
@@ -251,20 +269,20 @@ Numbers
 
 ### Rounding off
 
-    parseInt(2.5)       // 2
-    Math.floor(2.5)     // 2
-    Math.ceil(2.5)      // 3
-    Math.round(2.5)     // 3
-    (3.141).toFixed(2)  // 3.14
+    parseInt(2.5)       //=> 2
+    Math.floor(2.5)     //=> 2
+    Math.ceil(2.5)      //=> 3
+    Math.round(2.5)     //=> 3
+    (3.141).toFixed(2)  //=> 3.14
 
 ### Minimum and maximum
 
-    Math.min(2, 4)   // 2
-    Math.max(2, 4)   // 4
+    Math.min(2, 4)   //=> 2
+    Math.max(2, 4)   //=> 4
 
 ### Exponents
 
-    Math.pow(2, 8)   // 256
+    Math.pow(2, 8)   //=> 256
 
 ### Trigonometry
 
@@ -278,6 +296,11 @@ Strings
 
     "hello"
     'world'
+    `mundo`
+
+### Interpolation
+
+    `Hello, ${name}`
 
 ### Formatting
 
