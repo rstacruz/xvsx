@@ -6,7 +6,7 @@ rm -rf public || exit 0
 mkdir public
 
 # build
-make
+env ENV=production make
 
 # config
 git config --global user.email "nobody@nobody.org"

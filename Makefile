@@ -1,7 +1,11 @@
+PORT ?= 3000
+ENV := development
 bin        := ./node_modules/.bin
-browserify := $(bin)/browserify -t [ ractivate -x .html ]
+browserify := $(bin)/browserify -t [ babelify --stage 0 ] --extension .jsx
+b_external := -x react -x classnames -x uflux
+b_vendor   := -r react -r classnames -r uflux
 stylus     := $(bin)/stylus -u nib
-uglify     := $(bin)/uglifyjs -m
+uglify     := $(bin)/uglifyjs
 
 all: data assets
 	@echo "\033[32m✓\033[0m"
@@ -10,7 +14,7 @@ watch:
 	mkdir -p public
 	${bin}/multiexec \
 		"${bin}/watch make src" \
-		"cd public && ../${bin}/browser-sync start --server --files='*'"
+		"cd public && ../${bin}/browser-sync start --server --files='*' --port=${PORT}"
 
 #
 # data: build json from .md files
@@ -38,7 +42,7 @@ assets: \
 
 public/app.js: \
 	src/app.js \
-	$(shell find src -name '*.js' -or -name '*.html')
+	$(shell find src -name '*.js' -or -name '*.jsx')
 
 public/style.css: \
 	src/style.styl \
@@ -52,12 +56,17 @@ public/%.css: src/%.styl
 	#      stylus  $@
 	@$(stylus) $< -p > $@
 
-public/vendor.js: src/vendor.js
+public/vendor.js: Makefile
 	#  browserify  $@
-	@$(browserify) $< | $(uglify) > $@
+	$(bin)/browserify $(b_vendor) | $(uglify) -m -c > $@
 
 public/%.js: src/%.js
+ifeq ($(ENV),development)
+	#  browserify  $@ (dev)
+	$(browserify) --debug $(b_external) $< -o $@
+else
 	#  browserify  $@
-	@$(browserify) $< > $@
+	$(browserify) $(b_external) $< | $(uglify) -m -c > $@
+endif
 
 .PHONY: data assets all
