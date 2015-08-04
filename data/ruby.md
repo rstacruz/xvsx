@@ -14,8 +14,8 @@ Functions
 
 ### Invoking
 
-    greet "Hello", "John"
-    greet("Hello", "John")
+    greet 'Hello', 'John'
+    greet('Hello', 'John')
 
 ### Returning values
 
@@ -35,7 +35,7 @@ The last statement's value is always returned.
    
     def divide(a, b)
       if b == 0
-        raise "Divide by 0"
+        raise StandardError, 'Divide by 0'
       else
         a / b
       end
@@ -44,7 +44,7 @@ The last statement's value is always returned.
 ### Anonymous functions
 
     add_one = -> (n) { n + 1 }
-    add_one = lambda { |n| n + 1 }  # Ruby 1.8-
+    add_one = lambda { |n| n + 1 }  #! Ruby 1.8-
 
     add_one.call(20)
     add_one[20]
@@ -56,10 +56,10 @@ The last statement's value is always returned.
 ### Splat
 
     def greet(hi, *names)
+        #=> names == ['Moe', 'Curly']
     end
 
     greet('hi', 'Moe', 'Curly')
-    # names == ['Moe', 'Curly']
 
 ### Keyword arguments
 
@@ -204,15 +204,15 @@ Arrays
 ### Initializing
 
     list = []
-    list = ["a", "b", "c", "d", "e"]
+    list = ['a', 'b', 'c', 'd', 'e']
 
 ### Accessing
 
-    list[0] #=> "a"
+    list[0]  #=> 'a'
 
 ### Shorthand
 
-    %w[red blue]  #=> [ "red", "blue" ]
+    %w[red blue]  #=> [ 'red', 'blue' ]
     %I[red blue]  #=> [ :red, :blue ]
 
 ### Length
@@ -230,15 +230,15 @@ Arrays
 
 ### Removing items
 
-    # first
+    #! First:
     list.shift     #=>  a
     list           #=> [  b c d e]
-
-    # middle
+    # ---
+    #! Middle:
     list.delete 2  #=>      c
     list           #=> [a b   d e]
-
-    # last
+    # ---
+    #! Last:
     list.pop       #=>          e
     list           #=> [a b c d  ]
 
@@ -372,35 +372,35 @@ Strings
 
 ### Formatting
 
-    "Hello, %s from %s" % [ name, city ]
+    'Hello, %s from %s' % [ name, city ]
 
 ### Length
 
-    "Hello".size
+    'Hello'.size
 
 ### Substring
 
-    "Hi world"[0...2]  # "Hi"
-    "Hi world"[3..-1]  # "world"
-    "Hi world"[3..5]   # "wo"
+    'Hi world'[0...2]  #=> 'Hi'
+    'Hi world'[3..-1]  #=> 'world'
+    'Hi world'[3..5]   #=> 'wo'
 
 ### Search
 
-    "Hi".index("o")  # 4
-    "Hi".index("x")  # nil
+    'Hi'.index('o')  #=> 4
+    'Hi'.index('x')  #=> nil
 
-    "Hello".include?("llo")  # true
-    "Hello" =~ /llo/         # true
+    'Hello'.include?('llo')  #=> true
+    'Hello' =~ /llo/         #=> true
 
 ### Case
 
-    "Hello".upcase
-    "Hello".downcase
+    'Hello'.upcase
+    'Hello'.downcase
 
 ### Replace
 
-    "Hi".gsub(/o/, "ello")  # replace all
-    str.gsub!(/o/, "ello")  # in place
+    'Hi'.gsub(/o/, 'ello')  #! Replace all
+    str.gsub!(/o/, 'ello')  #! In place
 
 Dictionaries
 -----------
@@ -413,20 +413,20 @@ Dictionaries
 ### Literals
 
     colors = {
-      apple: "red",
-      grape: "purple"
+      apple: 'red',
+      grape: 'purple'
     }
 
 ### String keys
 
     colors = {
-      "apple" => "red",
-      "grape" => "purple"
+      'apple' => 'red',
+      'grape' => 'purple'
     }
 
 ### Access
 
-    colors[:banana] = "yellow"
+    colors[:banana] = 'yellow'
 
 ### List keys
 

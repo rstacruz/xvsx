@@ -1,15 +1,10 @@
 import React from 'react'
 import { default as Router, Route, Redirect } from 'react-router'
-import RootView from '../components/root_view'
-import App from '../dispatcher'
 
-function routeHandler (View, fn) {
-  return React.createClass({
-    componentWillMount () { fn(this.props) },
-    componentWillReceiveProps (props) { fn(props) },
-    render () { return <View {...this.props} {...this.state} /> }
-  })
-}
+import App from '../dispatcher'
+import RootView from '../components/root_view'
+import routeHandler from '../utils/route_handler'
+
 const RootViewHandler = routeHandler(RootView, function (props) {
   App.emit('language:confirm', [ props.params.left, props.params.right ])
 })

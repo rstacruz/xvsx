@@ -30,12 +30,12 @@ Functions
 
 ### Splat
 
-    function work(hi) {
+    function greet (hi) {
       var names = [].slice.call(arguments, 1);
+      //=> names == ['Moe', 'Curly']
     }
 
     greet('hi', 'Moe', 'Curly');
-    //=> names == ['Moe', 'Curly']
 
 Variables
 ---------
@@ -121,7 +121,7 @@ Methods
 
 ### Running a method with an arbitrary name
 
-    obj["method_name"](arg1, arg2);
+    obj['method_name'](arg1, arg2);
 
 Singletons
 ----------
@@ -129,7 +129,7 @@ Singletons
 ### Singleton pattern
 
     var AppConfig = {
-      read: function() {
+      read: function () {
         // ...
       }
     };
@@ -142,11 +142,11 @@ Arrays
 ### Initializing
 
     list = [];
-    list = ["a", "b", "c", "d", "e"];
+    list = ['a', 'b', 'c', 'd', 'e'];
 
 ### Accessing
 
-    list[0]  // "a"
+    list[0]  //=> 'a'
 
 ### Length
 
@@ -160,15 +160,15 @@ Arrays
 
 ### Removing items
 
-    // first
+    //! First:
     list.shift()      //=>  a
     list              //=> [  b c d e]
-
-    // middle
+    // ---
+    //! Middle:
     list.splice(2,1)  //=> [    c    ]
     list              //=> [a b   d e]
-
-    // last
+    // ---
+    //! Last:
     list.pop()        //=>          e 
     list              //=> [a b c d  ]
 
@@ -218,8 +218,8 @@ Types
 
 ### Casting
 
-    parseInt("10")
-    parseFloat("3.14")
+    parseInt('10')
+    parseFloat('3.14')
     String(obj)
     Number(obj)
 
@@ -235,6 +235,14 @@ Conditionals
     } else {
       // ...
     }
+
+### Equality
+
+    '2' == 2   //=> true
+    '2' === 2  //=> false
+    // ---
+    '2' != 2   //=> false
+    '2' !== 2  //=> true
 
 ### Switch-case
 
@@ -293,33 +301,33 @@ Strings
 ### Formatting
 
     var format = require('util').format;
-    format("Hello, %s from %s", name, city);
+    format('Hello, %s from %s', name, city);
 
 [format](http://nodejs.org/api/util.html#util_util_format_format) is only available on Node.js.
 
 ### Length
 
-    "Hello".length
+    'Hello'.length
 
 ### Substring
 
-    "Hi world".substr(0, 2)  // "Hi"
-    "Hi world".substr(3)     // "world"
-    "Hi world".substr(3, 2)  // "wo"
+    'Hi world'.substr(0, 2)  //=> 'Hi'
+    'Hi world'.substr(3)     //=> 'world'
+    'Hi world'.substr(3, 2)  //=> 'wo'
 
 ### Search
 
-    "Hi".indexOf("i")  // 4
-    "Hi".indexOf("x")  // -1
+    'Hi'.indexOf('i')  //=> 4
+    'Hi'.indexOf('x')  //=> -1
 
 ### Case
 
-    "Hello".toUpperCase()
-    "Hello".toLowerCase()
+    'Hello'.toUpperCase()
+    'Hello'.toLowerCase()
 
 ### Replace
 
-    "Hi".replace(/i/g, "ello")  // "Hello"
+    'Hi'.replace(/i/g, 'ello')  //=> 'Hello'
 
 Dictionaries
 -----------
@@ -331,14 +339,14 @@ Dictionaries
 ### Literals
 
     colors = {
-      apple: "red",
-      grape: "purple"
+      apple: 'red',
+      grape: 'purple'
     };
 
 ### Access
 
-    colors["banana"] = "yellow";
-    colors.banana = "yellow";
+    colors['banana'] = 'yellow';
+    colors.banana = 'yellow';
 
 ### List keys
 
@@ -356,13 +364,33 @@ Dictionaries
 Be sure to always check
 [hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty).
 
+Modules
+-------
+
+### Importing
+
+    var Express = require('express');
+
+### Importing a symbol
+
+    var Router = require('express').Router;
+
+### Importing a symbol as an alias
+
+    var ExRouter = require('express').Router;
+
+### Exporting
+
+    exports.item = /* ... */;
+    module.exports = { /* ... */ };
+
 String representation
 ---------------------
 
 ### Getting
 
     obj.toString()
-    "" + obj
+    '' + obj
     String(obj)
 
 Iterables
@@ -370,9 +398,13 @@ Iterables
 
 ### Iterating
 
-    list.forEach(function(item) {
+    list.forEach(function (item) {
+      // doc: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
       // ...
     });
+    // ---
+    list.every(/* ... */);
+    list.some(/* ... */);
 
 ### Foreach loops
 
@@ -383,13 +415,13 @@ Iterables
 
 ### Map
 
-    list.map(function(item) {
+    list.map(function (item) {
       return use(item);
     });
 
 ### Reduce
 
-    list.reduce(function(result, item) {
+    list.reduce(function (result, item) {
       result += item;
       return result;
     });
@@ -399,13 +431,13 @@ Printing
 
 ### Printing
 
-    console.log("hello");
-    process.stdout.write("hello\n"); // Node
+    console.log('hello');
+    process.stdout.write('hello\n'); //! Node.js
 
 ### Error output
 
-    console.warn("oh no");
-    process.stderr.write("oh no\n"); // Node
+    console.error('oh no');
+    process.stderr.write('oh no\n'); //! Node.js
 
 File API
 --------
@@ -417,15 +449,15 @@ File API
 ### Reading
 
     d = fs.readFileSync('file.txt', 'utf-8')
-
-    // Asynchronous:
+    // ---
+    //! Asynchronous:
     fs.readFile('file.txt', 'utf-8',
-      function(err, data) { /* ... */ });
+      function (err, data) { /* ... */ });
 
 ### Writing
 
     fs.writeFileSync('file.txt', 'utf-8', data);
-
-    // Asynchronous:
+    // ---
+    //! Asynchronous:
     fs.writeFile('file.txt', 'utf-8', data,
-      function(err) { /* ... */ });
+      function (err) { /* ... */ });

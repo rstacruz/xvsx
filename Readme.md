@@ -17,3 +17,10 @@ Dev server:
 ### Deploying
 
 Automaticaly deployed to `gh-pages` using Travis; see [.travis.yml](.travis.yml).
+
+### To do
+
+ - [ ] Document more sections:
+    - [ ] Errors/exceptions
+    - [ ] Regular expressions
+    - [ ] Heredocs, etc
