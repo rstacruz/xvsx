@@ -448,7 +448,7 @@ File API
 
 ### Reading
 
-    d = fs.readFileSync('file.txt', 'utf-8')
+    d = fs.readFileSync('file.txt', 'utf-8');
     // ---
     //! Asynchronous:
     fs.readFile('file.txt', 'utf-8',

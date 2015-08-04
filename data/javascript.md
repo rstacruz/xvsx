@@ -401,7 +401,7 @@ String representation
 ### Getting
 
     obj.toString()
-    "" + obj
+    '' + obj
     String(obj)
 
 Iterables
