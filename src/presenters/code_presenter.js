@@ -26,6 +26,11 @@ var compact = require('lodash').compact
 module.exports = function (data, languages) {
   var bundleName = getBundleName(data, languages)
 
+  // if comparing the same thing together, consolidate
+  if (languages[0] === languages[1]) {
+    languages = [ languages[0] ]
+  }
+
   var langs = languages.map((lang) => { return { id: lang } })
 
   var re = {
@@ -61,7 +66,7 @@ module.exports = function (data, languages) {
 
       // if it has the same code on both, suck it
       // this happens when comparing javascript with javascript-legacy
-      if (langs[0].code === langs[1].code) {
+      if (langs[1] && langs[0].code === langs[1].code) {
         return
       }
 
