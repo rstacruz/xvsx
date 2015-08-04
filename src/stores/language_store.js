@@ -19,8 +19,9 @@ export default new Store(App, [
     else langs.splice(idx, 1)
 
     // if it's the same, collapse into one
-    if (langs[0] === langs[1] && langs.length === 2)
+    if (langs[0] === langs[1] && langs.length === 2) {
       return [ langs[0] ]
+    }
 
     return langs
   },
