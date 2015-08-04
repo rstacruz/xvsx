@@ -12,5 +12,5 @@ export default new Store(App, {
     return { ...state,
       layout: (state.layout === 'default' ? 'compact' : 'default')
     }
-  },
+  }
 })

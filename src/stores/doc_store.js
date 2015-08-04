@@ -1,6 +1,5 @@
 import { Store } from 'uflux'
 import App from '../dispatcher'
-import Router from '../router'
 
 import codePresenter from '../presenters/code_presenter'
 

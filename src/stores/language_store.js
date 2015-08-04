@@ -20,7 +20,7 @@ export default new Store(App, [
 
   /**
    * Emitted when languages are changed
-   * 
+   *
    *     'language:confirm': (state, langs) => {
    *       // langs == ['ruby', 'javascript']
    *     }

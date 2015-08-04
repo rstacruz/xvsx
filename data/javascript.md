@@ -2,6 +2,7 @@ JavaScript (ES2015)
 ===================
 
 * Bundle: programming
+* Highlight: javascript
 
 Functions
 ---------
@@ -9,12 +10,12 @@ Functions
 ### Defining functions
 
     function greet(hi, name) {
-      console.log(hi + ", " + name);
+      console.log(hi + ', ' + name);
     }
 
 ### Invoking
 
-    greet("Hello", "John");
+    greet('Hello', 'John');
 
 ### Returning values
 

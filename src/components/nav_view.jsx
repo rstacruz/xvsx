@@ -113,8 +113,7 @@ let Nav = React.createClass({
 
   toggleCompact () {
     App.emit('settings:toggle_layout')
-  },
-
+  }
 })
 
 export default Nav

@@ -1,4 +1,3 @@
-import React from 'react'
 import remove from 'dom101/remove'
 
 window.App = {

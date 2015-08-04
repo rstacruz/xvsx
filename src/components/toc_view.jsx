@@ -5,10 +5,16 @@ import map from 'dom101/map'
 import DocStore from '../stores/doc_store'
 
 let TocView = React.createClass({
+  propTypes: {
+    docs: React.PropTypes.shape({
+      sections: React.PropTypes.array
+    })
+  },
+
   statics: {
     getStores: () => [ DocStore ],
     getPropsFromStores: () => {
-      return { 
+      return {
         docs: DocStore.getState()
       }
     }

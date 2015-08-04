@@ -68,7 +68,7 @@ endif
 public/%.js: src/%.js
 ifeq ($(NODE_ENV),development)
 	#  browserify  $@ (dev)
-	$(bin)/browserifyinc $(b_options) --debug $(b_external) $< -o $@
+	$(bin)/browserify $(b_options) --debug $(b_external) $< -o $@
 else
 	#  browserify  $@
 	$(bin)/browserify $(b_options) $(b_external) $< | $(uglify) -m -c > $@

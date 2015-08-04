@@ -9,7 +9,7 @@ import DocStore from '../stores/doc_store'
 let CodeView = React.createClass({
   propTypes: {
     docs: React.PropTypes.object,
-    settings: React.PropTypes.object,
+    settings: React.PropTypes.object
   },
 
   statics: {
@@ -28,7 +28,7 @@ let CodeView = React.createClass({
   },
 
   getInitialState () {
-    return { ...this.getComputedProps(this.props) }
+    return { ... this.getComputedProps(this.props) }
   },
 
   componentWillReceiveProps (props) {
@@ -54,12 +54,29 @@ let CodeView = React.createClass({
       >
         <h2 className='title'>{section.title}</h2>
 
+        { this.props.settings.layout === 'compact' ? (
+          <div className='article language-header'>
+            <div className='left'></div>
+            <div className='right'>
+              {map(this.props.docs.languages, (lang) => {
+                return (
+                  <div className='lang' key={lang.id}>
+                    {lang.title}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        ) : null }
+
         {map(section.subsections, (sub, j) => {
-          return (<div className='article' key={j}>
-            <h3 className='article-head'>{sub.title}</h3>
-            {this.renderArticleCode(sub)}
-            {this.renderArticleText(sub)}
-          </div>)
+          return (
+            <div className='article' key={j}>
+              <h3 className='article-head'>{sub.title}</h3>
+              {this.renderArticleCode(sub)}
+              {this.renderArticleText(sub)}
+            </div>
+          )
         })}
       </section>
     )
@@ -99,9 +116,9 @@ let CodeView = React.createClass({
         <table>
           <tr>
             {map(sub.languages, (lang) => {
-              return <td
+              return (<td
                 key={lang.language}
-                dangerouslySetInnerHTML={{__html: lang.text}} />
+                dangerouslySetInnerHTML={{__html: lang.text}} />)
             })}
           </tr>
         </table>

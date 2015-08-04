@@ -9,10 +9,12 @@ var compact = require('lodash').compact
  *       languages: { ... }
  *     }
  *     codePresenter(data, ['javascript', 'ruby'])
- *     
+ *
  * Returns:
  *
- *     languages: ['javascript', 'ruby']
+ *     languages:
+ *       - id: 'python'
+ *       - id: 'ruby'
  *     sections:
  *       - title: '...'
  *         subsections:
@@ -31,7 +33,9 @@ module.exports = function (data, languages) {
     languages = [ languages[0] ]
   }
 
-  var langs = languages.map((lang) => { return { id: lang } })
+  var langs = languages.map((lang) => {
+    return { id: lang, title: data.languages[lang].title }
+  })
 
   var re = {
     languages: langs,

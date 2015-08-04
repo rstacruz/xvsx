@@ -8,6 +8,7 @@
     margin-bottom: @margin-top
     max-width: 920px
 
+  .left,
   .article-head
     width: 20%
     float: left
@@ -22,7 +23,8 @@
     display: none
 
   .article-code,
-  .article-text
+  .article-text,
+  .right
     width: 80%
     float: right
 
@@ -47,9 +49,11 @@
   @media (min-width: 1270px)
     .article
       max-width: 1100px
-    .article-head
+    .article-head,
+    .left
       width: 15%
     .article-code,
-    .article-text
+    .article-text,
+    .right
       width: 85%
 
