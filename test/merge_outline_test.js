@@ -69,9 +69,10 @@ describe('merge', function () {
   });
 
   it('works with h2 additions', function () {
+    // shouldnt this work the other way around?
     var out = merge([
       { "X": { a: {}, b: {} } },
-      { "Y": { a: {}, b: {} } },
+      { "Y": { a: {}, b: {} } }
     ]);
 
     expect(j(out)).eql(j({

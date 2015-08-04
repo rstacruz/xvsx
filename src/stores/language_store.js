@@ -5,15 +5,14 @@ export default new Store(App, [
   'ruby', 'javascript'
 ], {
 
-  /*
-   * Updates language
+  /**
+   * Updates the language at index `idx` to `lang`.
    *
    *     App.emit('language:set', 1, 'ruby')
    */
 
   'language:set': (langs, idx, lang) => {
     App.emitAfter('language:renav')
-    console.log('update langs:', idx, lang)
 
     // replace it
     if (lang) langs[idx] = lang
@@ -27,7 +26,7 @@ export default new Store(App, [
   },
 
   /**
-   * Private: renavigates the page
+   * Private: renavigates the page.
    */
 
   'language:renav': (langs) => {

@@ -4,7 +4,7 @@ import c from 'classnames'
 
 import App from '../dispatcher'
 
-const LangDropdown = React.createClass({
+const LangDropdownView = React.createClass({
   propTypes: {
 
     /**
@@ -27,21 +27,21 @@ const LangDropdown = React.createClass({
   },
 
   render () {
-    return <div
+    return (<div
       className={`lang-dropdown -i${this.props.idx + 1}`}
     >
       {map(this.props.languages, (lang, key, i) => {
         /* {..}, "javascript" */
-        return <li key={key}>
+        return (<li key={key}>
           <button
             className={c({ '-active': this.isActive(key) })}
             onClick={this.updateLanguage(this.props.idx, key)}
           >
             {lang.title}
           </button>
-        </li>
+        </li>)
       })}
-    </div>
+    </div>)
   },
 
   /**
@@ -62,4 +62,4 @@ const LangDropdown = React.createClass({
   }
 })
 
-export default LangDropdown
+export default LangDropdownView
