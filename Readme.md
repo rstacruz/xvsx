@@ -24,3 +24,5 @@ Automaticaly deployed to `gh-pages` using Travis; see [.travis.yml](.travis.yml)
     - [ ] Errors/exceptions
     - [ ] Regular expressions
     - [ ] Heredocs, etc
+    - [ ] Loops (do, while, for)
+    - [ ] Comments

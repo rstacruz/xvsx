@@ -304,6 +304,10 @@ Strings
     "hello"
     'world'
 
+### Concatenation
+
+    'Hello, ' + name
+
 ### Formatting
 
     var format = require('util').format;

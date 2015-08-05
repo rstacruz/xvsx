@@ -244,8 +244,8 @@ Types
 
 ### Null
 
-    null
-    undefined
+    null #! indicates a non-value
+    undefined #! indicates a value is not present
 
 ### Type checking
 
@@ -340,6 +340,10 @@ Strings
 ### Interpolation
 
     `Hello, ${name}`
+
+### Concatenation
+
+    'Hello, ' + name
 
 ### Formatting
 

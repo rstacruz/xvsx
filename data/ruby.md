@@ -381,6 +381,10 @@ Strings
 
     "Hello, #{name}"
 
+### Concatenation
+
+    'Hello, ' + name
+
 ### Formatting
 
     'Hello, %s from %s' % [ name, city ]
