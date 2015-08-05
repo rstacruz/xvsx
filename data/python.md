@@ -9,11 +9,11 @@ Functions
 ### Defining functions
 
     def greet(hi, name):
-      print "%s, %s" % ( hi, name )
+      print '%s, %s' % ( hi, name )
 
 ### Invoking
 
-    greet("Hello", "John")
+    greet('Hello', 'John')
 
 ### Returning values
 
@@ -32,17 +32,17 @@ Functions
 ### Splat
 
     def greet(hi, *names):
+      #=> names == ['Moe', 'Curly']
       # ...
 
     greet('hi', 'Moe', 'Curly')
-    # names == ['Moe', 'Curly']
 
 ### Keyword arguments
 
     def greet(**kwargs):
       # ...
 
-    greet(name="Moe", time="now")
+    greet(name='Moe', time='now')
 
 Variables
 ---------
@@ -68,7 +68,7 @@ Classes
 
     class Shape:
       def __init__(self):
-        # code here
+        # ...
 
 ### Attributes
 
@@ -112,11 +112,11 @@ Arrays
 ### Initializing
 
     list = []
-    list = ["a", "b", "c", "d", "e"]
+    list = ['a', 'b', 'c', 'd', 'e']
 
 Assume all examples start with this.
 
 ### Accessing
 
-    list[0]  # "a"
+    list[0]  #=> 'a'
 
