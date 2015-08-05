@@ -13,7 +13,7 @@ const AppRouter = Router.create({
   location: Router.HashLocation,
   routes: (
     <Route>
-      <Redirect from='/' to='compare' params={{left: 'ruby', right: 'python'}} />
+      <Redirect from='/' to='compare' params={{left: 'ruby', right: 'javascript'}} />
       <Route path=':left/:right' name='compare' handler={RootViewHandler} />
     </Route>
   )
