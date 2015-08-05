@@ -102,7 +102,7 @@ Destructuring
 
 ### Assignments
 
-   first, last = ['Nikola', 'Tesla']
+    first, last = ['Nikola', 'Tesla']
 
 Classes
 -------
@@ -475,6 +475,13 @@ Iterables
       result += item
       result
     list
+
+Modules
+-------
+
+### Importing
+
+    require 'fileutils'
 
 String representation
 ---------------------

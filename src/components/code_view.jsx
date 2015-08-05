@@ -31,18 +31,18 @@ let CodeView = React.createClass({
     return { ... this.getComputedProps(this.props) }
   },
 
-  componentWillReceiveProps (props) {
+  gomponentWillReceiveProps (props) {
     this.setState(this.getComputedProps(props))
   },
 
   render () {
+    let { settings, docs } = this.props
+
     return (
       <div
-        className={`code-panel -layout-${this.props.settings.layout}`}
+        className={c('code-panel', `-layout-${settings.layout}`)}
       >
-        {map(this.props.docs.sections, (section, i) => {
-          return this.renderSection(section, i)
-        })}
+        {map(docs.sections, this.renderSection)}
       </div>
     )
   },
@@ -85,7 +85,7 @@ let CodeView = React.createClass({
   renderArticleCode (sub) {
     return (
       <div
-        className={c('article-code', { '-with-text': sub.hasText })}
+        className={c('article-code', sub.hasText && '-with-text')}
       >
         <table>
           <tr>
@@ -93,7 +93,7 @@ let CodeView = React.createClass({
               if (lang.code) {
                 return (<td key={lang.language}>
                   <pre
-                    className={`hljs lang-${lang.language}`}
+                    className={c('hljs', `lang-${lang.language}`)}
                     dangerouslySetInnerHTML={{ __html: lang.code }} />
                 </td>)
               } else {
@@ -111,19 +111,17 @@ let CodeView = React.createClass({
   renderArticleText (sub) {
     if (!sub.hasText) return
 
-    return (
-      <div className='article-text'>
-        <table>
-          <tr>
-            {map(sub.languages, (lang) => {
-              return (<td
-                key={lang.language}
-                dangerouslySetInnerHTML={{__html: lang.text}} />)
-            })}
-          </tr>
-        </table>
-      </div>
-    )
+    return (<div className='article-text'>
+      <table>
+        <tr>
+          {map(sub.languages, (lang) => {
+            return (<td
+              key={lang.language}
+              dangerouslySetInnerHTML={{__html: lang.text}} />)
+          })}
+        </tr>
+      </table>
+    </div>)
   }
 })
 
