@@ -19,8 +19,8 @@
 
   .hljs-comment.-mini
     font-family: merriweather, serif
-    letter-spacing: 1px
-    font-size: 0.9em
+    letter-spacing: .02em
+    font-size: .9em
     font-style: italic
 
   .hljs-symbol,
@@ -79,3 +79,15 @@
     &:hover:before
       background-color: $accent3
       color: white
+
+  a
+    color: $darkslate
+    text-decoration: none
+    link-style()
+
+  a:hover
+    color: $xblack
+
+  code
+    font-family: merriweather, serif
+    color: $slate

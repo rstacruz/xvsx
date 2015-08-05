@@ -28,8 +28,8 @@ Functions
     def square(n)
       n * n
     end
-
-The last statement's value is always returned.
+    # ---
+    #! The last statement's value is always returned.
 
 ### Implicit returns (2)
    
@@ -138,8 +138,8 @@ Classes
         self.height = height
       end
     end
-
-See: [Accessors](http://www.rubyist.net/~slagell/ruby/accessors.html). Also: `attr_reader` and `attr_writer`.
+    # ---
+    #! See: [Accessors](http://www.rubyist.net/~slagell/ruby/accessors.html). Also: `attr_reader` and `attr_writer`.
 
 ### Setter/Getter
 

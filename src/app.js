@@ -7,6 +7,6 @@ window.App = {
   TitleStore: require('./stores/title_store'),
   DocStore: require('./stores/doc_store'),
   Router: require('./router')
- }
+}
 
 remove(document.getElementById('loader'))

@@ -1,7 +1,7 @@
 /* jshint sub: true */
 var expect = require('chai').expect
 var present = require('../src/presenters/code_presenter')
-var pluck = require('underscore').pluck
+var pluck = require('lodash.pluck')
 
 describe('Presenter:', function () {
   var data, out
