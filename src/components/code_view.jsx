@@ -10,7 +10,10 @@ import DocStore from '../stores/doc_store'
 let CodeView = React.createClass({
   propTypes: {
     docs: React.PropTypes.object,
-    settings: React.PropTypes.object
+    settings: React.PropTypes.object,
+    selected: React.PropTypes.arrayOf(
+      React.PropTypes.string
+    )
   },
 
   statics: {

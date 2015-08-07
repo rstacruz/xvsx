@@ -8,7 +8,7 @@ const RootViewHandler = routeHandler(function (props) {
   App.emit('language:confirm', [ props.params.left, props.params.right ])
 })
 
-let Location = (~location.hostname.indexOf('ricostacruz.com')) ?
+let Location = (~window.location.hostname.indexOf('ricostacruz.com')) ?
   Router.HashLocation :
   Router.HistoryLocation
 
