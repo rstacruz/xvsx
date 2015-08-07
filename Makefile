@@ -36,6 +36,7 @@ public/data.js: public/data.json
 
 assets: \
 	public/index.html \
+	public/index-nonroot.html \
 	public/style.css \
 	public/app.js \
 	public/vendor.js

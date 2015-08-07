@@ -42,6 +42,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "browserify-incremental": "^3.0.1"
+    "browserify-incremental": "^3.0.1",
+    "superstatic": "^1.2.3"
   }
 }
