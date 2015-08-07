@@ -2,15 +2,18 @@ import React from 'react'
 import { default as Router, Route, Redirect } from 'react-router'
 
 import App from '../dispatcher'
-import RootView from '../components/root_view'
 import routeHandler from '../utils/route_handler'
 
-const RootViewHandler = routeHandler(RootView, function (props) {
+const RootViewHandler = routeHandler(function (props) {
   App.emit('language:confirm', [ props.params.left, props.params.right ])
 })
 
+let Location = (~location.hostname.indexOf('ricostacruz.com')) ?
+  Router.HashLocation :
+  Router.HistoryLocation
+
 const AppRouter = Router.create({
-  location: Router.HashLocation,
+  location: Location,
   routes: (
     <Route>
       <Redirect from='/' to='compare' params={{left: 'ruby', right: 'javascript'}} />
@@ -19,8 +22,8 @@ const AppRouter = Router.create({
   )
 })
 
-AppRouter.run((Root, state) => {
-  React.render(<Root />, document.getElementById('all'))
-})
+let div = document.createElement('div')
+document.body.appendChild(div)
+AppRouter.run((Root, state) => { React.render(<Root />, div)})
 
 export default AppRouter

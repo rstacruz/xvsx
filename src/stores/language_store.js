@@ -1,6 +1,5 @@
 import { Store } from 'uflux'
 import App from '../dispatcher'
-import Router from '../router'
 
 export default new Store(App, [
   'ruby', 'javascript'
@@ -35,6 +34,7 @@ export default new Store(App, [
    */
 
   'language:renav': (langs) => {
+    const Router = require('../router')
     Router.replaceWith('compare', { left: langs[0], right: langs[1] })
   }
 })

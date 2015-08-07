@@ -23,9 +23,9 @@ let TocView = React.createClass({
   render () {
     return (
       <div className='toc-panel'>
-        {map(this.props.docs.sections, (section, idx) => {
-          return this.renderSection(section, idx)
-        })}
+        {this.props.docs.sections ?
+          map(this.props.docs.sections, this.renderSection)
+          : null}
       </div>
     )
   },

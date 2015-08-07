@@ -4,6 +4,7 @@ import React from 'react'
 import { connectToStores } from 'uflux'
 
 import SettingsStore from '../stores/settings_store'
+import LanguageStore from '../stores/language_store'
 import DocStore from '../stores/doc_store'
 
 let CodeView = React.createClass({
@@ -13,26 +14,14 @@ let CodeView = React.createClass({
   },
 
   statics: {
-    getStores: () => [ SettingsStore, DocStore ],
+    getStores: () => [ SettingsStore, DocStore, LanguageStore ],
     getPropsFromStores: () => {
       return {
         settings: SettingsStore.getState(),
-        docs: DocStore.getState()
+        docs: DocStore.getState(),
+        selected: LanguageStore.getState()
       }
     }
-  },
-
-  getComputedProps (props) {
-    let selected = [ props.params.left, props.params.right ]
-    return { selected }
-  },
-
-  getInitialState () {
-    return { ... this.getComputedProps(this.props) }
-  },
-
-  gomponentWillReceiveProps (props) {
-    this.setState(this.getComputedProps(props))
   },
 
   render () {
@@ -42,7 +31,7 @@ let CodeView = React.createClass({
       <div
         className={c('code-panel', `-layout-${settings.layout}`)}
       >
-        {map(docs.sections, this.renderSection)}
+        {docs.sections ? map(docs.sections, this.renderSection) : null}
       </div>
     )
   },
@@ -50,7 +39,7 @@ let CodeView = React.createClass({
   renderSection (section, i) {
     return (
       <section key={i}
-        className={c('section', 'with-' + this.state.selected.length)}
+        className={c('section', 'with-' + this.props.selected.length)}
       >
         <h2 className='title'>{section.title}</h2>
 

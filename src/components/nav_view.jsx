@@ -1,32 +1,33 @@
 import React from 'react'
 import c from 'classnames'
 import map from 'dom101/map'
+import { connectToStores } from 'uflux'
 
 import App from '../dispatcher'
+import LanguageStore from '../stores/language_store'
 import LangDropdownView from '../components/lang_dropdown_view'
 
-let Nav = React.createClass({
+let NavView = React.createClass({
   propTypes: {
     data: React.PropTypes.shape({
       languages: React.PropTypes.object
-    })
+    }),
+    selected: React.PropTypes.arrayOf(
+      React.PropTypes.string
+    )
   },
 
-  getComputedProps (props) {
-    return {
-      selected: [ props.params.left, props.params.right ]
+  statics: {
+    getStores: () => [ LanguageStore ],
+    getPropsFromStores () {
+      return { selected: LanguageStore.getState() }
     }
   },
 
   getInitialState () {
     return {
-      ...this.getComputedProps(this.props),
       dropdownVisible: false
     }
-  },
-
-  componentWillReceiveProps (props) {
-    this.setState(this.getComputedProps(props))
   },
 
   render () {
@@ -48,7 +49,7 @@ let Nav = React.createClass({
             return (<LangDropdownView
               idx={i}
               languages={this.props.data.languages}
-              selected={this.state.selected[i] || this.state.selected[0]} />)
+              selected={this.props.selected[i] || this.props.selected[0]} />)
           })}
         </div>
       </div>
@@ -59,7 +60,7 @@ let Nav = React.createClass({
     return (
       <div className='controls'>
         <div className='container'>
-          {map(this.state.selected, (lang, name, i) => {
+          {map(this.props.selected, (lang, name, i) => {
             return (
               <div className={`lang -i${i + 1}`} key={i}>
                 <button
@@ -116,4 +117,6 @@ let Nav = React.createClass({
   }
 })
 
-export default Nav
+NavView = connectToStores(NavView)
+
+export default NavView
