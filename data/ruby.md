@@ -337,13 +337,13 @@ Conditionals
 ### Switch-case
 
     case day
-      when 'Monday'
-        work
-      when 'Tuesday'
-      when 'Wednesday'
-        train
-      else
-        sleep
+    when 'Monday'
+      work
+    when 'Tuesday'
+    when 'Wednesday'
+      train
+    else
+      sleep
     end
 
 ### And-or
