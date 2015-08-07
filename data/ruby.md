@@ -264,9 +264,20 @@ Arrays
     list[1..-1]  #=> [  b c d e]
     list[2...3]  #=> [    c    ]
 
+### Finding index
+
+    list = [ a, b, c, d, a ]
+    list.index(a)  #=> 0
+    # ---
+    list.find_index { |item| item == a }  #=> 0
+
 ### Checking for presence
 
     if [1, 2, 3].include?(2)
+
+### Filtering
+
+    list.select { |user| user.age > 18 }
 
 Types
 -----
@@ -326,10 +337,10 @@ Conditionals
 ### Switch-case
 
     case day
-      when "Monday"
+      when 'Monday'
         work
-      when "Tuesday"
-      when "Wednesday"
+      when 'Tuesday'
+      when 'Wednesday'
         train
       else
         sleep
@@ -414,8 +425,13 @@ Strings
 
 ### Replace
 
-    'Hi'.gsub(/o/, 'ello')  #! Replace all
-    str.gsub!(/o/, 'ello')  #! In place
+    'Hi'.gsub(/o/, 'ello')  #! (replace all)
+    str.gsub!(/o/, 'ello')  #! (in place)
+
+### Advanced replace
+
+    str.gsub(/age: (\d+)/) { "edad: #{$1}" }
+    #! Changes `'age: 12'` to `'edad: 12'`
 
 Dictionaries
 -----------

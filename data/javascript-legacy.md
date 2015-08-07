@@ -189,9 +189,21 @@ Arrays
     list.slice(1)     //=> [  b c d e]
     list.slice(2, 1)  //=> [    c    ]
 
+### Finding index
+
+    list = [ a, b, c, d, a ];
+    list.indexOf(a)      //=> 0
+    list.lastIndexOf(a)  //=> 4 (IE9+)
+
 ### Checking for presence
 
     if ([1, 2, 3].indexOf(2) > -1)
+
+### Filtering
+
+    users.filter(function (user) {
+      return user.age > 18;
+    }) //! IE9+
 
 Types
 -----
@@ -212,8 +224,8 @@ Types
 
 ### Null
 
-    null
-    undefined
+    null //! (a non-value)
+    undefined //! (a value is not present)
 
 ### Type checking
 
@@ -253,12 +265,12 @@ Conditionals
 ### Switch-case
 
     switch (day) {
-      case "Monday":
+      case 'Monday':
         work();
         break;
 
-      case "Tuesday":
-      case "Wednesday":
+      case 'Tuesday':
+      case 'Wednesday':
         train();
         break;
 
@@ -337,7 +349,17 @@ Strings
 
 ### Replace
 
-    'Hi'.replace(/i/g, 'ello')  //=> 'Hello'
+    'Hi'.replace('i', 'ello')   //! (string)
+    'Hi'.replace(/i/, 'ello')   //! (regex)
+    'Hi'.replace(/i/g, 'ello')  //! (replace all)
+
+### Advanced replace
+
+    str.replace(/age: (\d+)/g, function (_, n) {
+      return 'edad: ' + n;
+    })
+    //! Changes `'age: 12'` to `'edad: 12'`
+
 
 Dictionaries
 -----------

@@ -221,9 +221,19 @@ Arrays
     list.slice(1)     //=> [  b c d e]
     list.slice(2, 1)  //=> [    c    ]
 
+### Finding index
+
+    list = [ a, b, c, d, a ];
+    list.indexOf(a)      //=> 0
+    list.lastIndexOf(a)  //=> 4 (IE9+)
+
 ### Checking for presence
 
     if ([1, 2, 3].indexOf(2) > -1)
+
+### Filtering
+
+    users.filter((user) => user.age > 18) //! IE9+
 
 Types
 -----
@@ -244,8 +254,8 @@ Types
 
 ### Null
 
-    null #! indicates a non-value
-    undefined #! indicates a value is not present
+    null //! (a non-value)
+    undefined //! (a value is not present)
 
 ### Type checking
 
@@ -285,12 +295,12 @@ Conditionals
 ### Switch-case
 
     switch (day) {
-      case "Monday":
+      case 'Monday':
         work();
         break;
 
-      case "Tuesday":
-      case "Wednesday":
+      case 'Tuesday':
+      case 'Wednesday':
         train();
         break;
 
@@ -374,7 +384,14 @@ Strings
 
 ### Replace
 
-    'Hi'.replace(/i/g, 'ello')  //=> 'Hello'
+    'Hi'.replace('i', 'ello')   //! (string)
+    'Hi'.replace(/i/, 'ello')   //! (regex)
+    'Hi'.replace(/i/g, 'ello')  //! (replace all)
+
+### Advanced replace
+
+    str.replace(/age: (\d+)/g, (_, n) => `edad: ${n}`)
+    //! Changes `'age: 12'` to `'edad: 12'`
 
 Dictionaries
 -----------
@@ -402,13 +419,23 @@ Dictionaries
 ### Shorthand
 
     exports = { read, write };
-    //! Same as { read: read, write: write }
+    //! Same as `{ read: read, write: write }`
 
 ### Computed property names
 
     result = {
       [ 'prop_' + n ]: 42
     }
+
+### Functions
+
+    obj = {
+      hide () {
+        this.hidden = true;
+      }
+    };
+    // ---
+    //! `hide() { ... }` is the same as `hide: function () { ... }`.
 
 ### Setters and getters
 
