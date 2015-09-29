@@ -182,6 +182,10 @@ Arrays
     list = [];
     list = ['a', 'b', 'c', 'd', 'e'];
 
+### Assigning
+
+    list[0] = 'a';
+
 ### Accessing
 
     list[0]  //=> 'a'
@@ -234,6 +238,12 @@ Arrays
 ### Filtering
 
     users.filter((user) => user.age > 18) //! IE9+
+
+### Iteration
+
+    list.forEach((item) => {
+      console.log(item);
+    });
 
 Types
 -----

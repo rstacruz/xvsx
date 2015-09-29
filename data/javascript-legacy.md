@@ -150,6 +150,10 @@ Arrays
     list = [];
     list = ['a', 'b', 'c', 'd', 'e'];
 
+### Assigning
+
+    list[0] = 'a';
+
 ### Accessing
 
     list[0]  //=> 'a'
@@ -204,6 +208,13 @@ Arrays
     users.filter(function (user) {
       return user.age > 18;
     }) //! IE9+
+
+### Iteration
+
+    for (var i = 0; i < list.length; ++i) {
+      var item = list[i];
+      console.log(item);
+    }
 
 Types
 -----
