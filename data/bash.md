@@ -1,8 +1,8 @@
-JavaScript (ES2015)
-===================
+Bash
+====
 
 * Bundle: programming
-* Highlight: javascript
+* Highlight: bash
 
 Functions
 ---------
