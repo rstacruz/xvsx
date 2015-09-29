@@ -8,9 +8,9 @@ const RootViewHandler = routeHandler(function (props) {
   App.emit('language:confirm', [ props.params.left, props.params.right ])
 })
 
-let Location = (~window.location.hostname.indexOf('ricostacruz.com')) ?
-  Router.HashLocation :
-  Router.HistoryLocation
+let Location = (~window.location.hostname.indexOf('ricostacruz.com'))
+  ? Router.HashLocation
+  : Router.HistoryLocation
 
 const AppRouter = Router.create({
   location: Location,
@@ -24,6 +24,6 @@ const AppRouter = Router.create({
 
 let div = document.createElement('div')
 document.body.appendChild(div)
-AppRouter.run((Root, state) => { React.render(<Root />, div)})
+AppRouter.run((Root, state) => { React.render(<Root />, div) })
 
 export default AppRouter

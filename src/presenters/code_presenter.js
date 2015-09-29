@@ -46,10 +46,8 @@ module.exports = function (data, languages) {
 
   // each section
   re.sections = compact(map(bundle.outline, (h2, suboutline) => {
-
     // subsections
     var subs = compact(map(suboutline, (h3, subsection) => {
-
       // languages
       var langs = languages.map(function (lang) {
         var ld = bundle.languages[lang]
