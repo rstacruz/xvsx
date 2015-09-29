@@ -24,10 +24,12 @@ data: public/data.js public/data.json
 
 public/data.json: $(shell find data -name '*.md')
 	#      bundle  $@
+	@mkdir -p public
 	@${bin}/babel-node lib/bundle.js $^ > $@
 
 public/data.js: public/data.json
 	#      bundle  $@
+	@mkdir -p public
 	@(echo "window.Data=(" ; cat $^ ; echo ");") > $@
 
 #
