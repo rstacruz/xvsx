@@ -24,7 +24,7 @@ Functions
     end
 
 ### Implicit returns
-   
+
     def square(n)
       n * n
     end
@@ -32,7 +32,7 @@ Functions
     #! The last statement's value is always returned.
 
 ### Implicit returns (2)
-   
+
     def divide(a, b)
       if b == 0
         raise StandardError, 'Divide by 0'
@@ -330,7 +330,7 @@ Conditionals
       # ...
     end
 
-### Postfix syntax
+### Single-line syntax
 
     return if a == b
 
@@ -350,6 +350,10 @@ Conditionals
 
     if a && b
     if c || d
+
+### Ternary
+
+    name == 'john' ? 'yes' : 'no'
 
 Numbers
 -------
@@ -434,7 +438,7 @@ Strings
     #! Changes `'age: 12'` to `'edad: 12'`
 
 Dictionaries
------------
+------------
 
 ### Type
 
@@ -447,6 +451,19 @@ Dictionaries
       apple: 'red',
       grape: 'purple'
     }
+    # String keys:
+    colors = {
+      'apple' => 'red',
+      'grape' => 'purple'
+    }
+
+### Access
+
+    color[:banana]
+
+### Setting
+
+    color[:banana] = 'yellow'
 
 ### String keys
 

@@ -10,7 +10,7 @@ Functions
 ### Defining functions
 
     function greet(hi, name) {
-      console.log(hi + ', ' + name);
+      console.log(`#{hi}, ${name}`);
     }
 
 ### Invoking
@@ -250,12 +250,15 @@ Types
 
 ### Primitives
 
-    Number
-    Array
-    Boolean
-    Date
-    String
-    RegExp
+    23                    // Number
+    23.0                  // Number
+    [ 1, 2, 3]            // Array
+    true, false           // Boolean
+    new Date(2015, 1, 1)  // Date
+    'hello'               // String
+    {name: 'John'}        // Object
+    /^abc/                // RegExp
+    function () {}        // Function
 
 ### Booleans
 
@@ -322,6 +325,10 @@ Conditionals
 
     if (a && b)
     if (c || d)
+
+### Ternary
+
+    name == 'john' ? 'yes' : 'no'
 
 Numbers
 -------
@@ -418,6 +425,11 @@ Dictionaries
     };
 
 ### Access
+
+    colors['banana']
+    colors.banana
+
+### Setting
 
     colors['banana'] = 'yellow';
     colors.banana = 'yellow';
