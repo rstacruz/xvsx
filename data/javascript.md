@@ -582,3 +582,14 @@ File API
     //! Asynchronous:
     fs.writeFile('file.txt', 'utf-8', data,
       function (err) { /* ... */ });
+
+System
+------
+
+### Environment variables
+
+    process.env.DATABASE_URL
+
+### Arguments parsing
+
+    process.argv.split(2)

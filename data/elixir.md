@@ -159,3 +159,22 @@ Dictionaries
 ### Access
 
     colors['banana']
+
+Modules
+-------
+
+### Importing
+
+    import Ecto
+
+System
+------
+
+### Environment variables
+
+    System.get_env("DATABASE_URL")
+    System.put_env("DATABASE_URL", "url")
+
+### Arguments parsing
+
+    System.argv

@@ -556,3 +556,14 @@ File API
 
     File.write('file.txt', data)
     File.write('file.txt') { data }
+
+System
+------
+
+### Environment variables
+
+    ENV['DATABASE_URL']
+
+### Arguments parsing
+
+    $ARGV
