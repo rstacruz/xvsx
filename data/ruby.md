@@ -192,7 +192,7 @@ Methods
 
     obj.send :method_name, arg1, arg2
 
-Singletons
+Namespaces
 ----------
 
 ### Singleton pattern
