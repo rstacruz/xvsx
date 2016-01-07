@@ -451,8 +451,8 @@ Dictionaries
       apple: 'red',
       grape: 'purple'
     }
-    # String keys:
-    colors = {
+    // ---
+    colors = { # String keys
       'apple' => 'red',
       'grape' => 'purple'
     }
@@ -464,13 +464,6 @@ Dictionaries
 ### Setting
 
     color[:banana] = 'yellow'
-
-### String keys
-
-    colors = {
-      'apple' => 'red',
-      'grape' => 'purple'
-    }
 
 ### Access
 
