@@ -91,6 +91,20 @@ JavaScript doesn't have classes, it has prototypes.
         this.height = height;
       };
 
+### Setter/Getter
+
+    Object.defineProperty(Shape.prototype, 'hidden', {
+      get: circumference () {
+        return this.radius * Math.PI * 2;
+      },
+      set: function (value) {
+        this.radius = value / (MATH.PI * 2)
+        return this.radius
+      }
+    });
+
+Supported in IE9+.
+
 ### Inheritance
 
     function Rectangle() {
@@ -304,6 +318,14 @@ Conditionals
 
 Numbers
 -------
+
+### Operations
+
+    1 + 1
+    10 - 5
+    5 * 2
+    11 / 2      //=> 5.5
+    11 % 2      //=> 1
 
 ### Rounding off
 

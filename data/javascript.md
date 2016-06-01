@@ -121,12 +121,12 @@ Classes
 
     class Shape {
       get circumference () {
-        return this.radius * Math.PI * 2
+        return this.radius * Math.PI * 2;
       }
 
       set circumference (value) {
         this.radius = value / (Math.PI * 2)
-        return value
+        return this.radius
       }
     }
 
@@ -339,8 +339,8 @@ Numbers
     1 + 1
     10 - 5
     5 * 2
-    11 / 2      #=> 5.5
-    11 % 2      #=> 1
+    11 / 2      //=> 5.5
+    11 % 2      //=> 1
 
 ### Rounding off
 
