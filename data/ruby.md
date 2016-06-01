@@ -12,6 +12,8 @@ Functions
       puts "#{hi}, #{name}"
     end
 
+When using `def` outside of a Class or Module, they're defined a as method for `Object` and is available everywhere.
+
 ### Invoking
 
     greet 'Hello', 'John'
@@ -103,6 +105,12 @@ Destructuring
 ### Assignments
 
     first, last = ['Nikola', 'Tesla']
+
+### Spreading
+
+    head, *tail = [1, 2, 3, 4]
+    head  #=> 1
+    tail  #=> [2, 3, 4]
 
 Classes
 -------
@@ -358,6 +366,15 @@ Conditionals
 Numbers
 -------
 
+### Operations
+
+    1 + 1
+    10 - 5
+    5 * 2
+    11 / 2      #=> 5
+    11.0 / 2    #=> 5.5
+    11 % 2      #=> 1
+
 ### Rounding off
 
     (2.5).to_i    #=> 2
@@ -451,7 +468,7 @@ Dictionaries
       apple: 'red',
       grape: 'purple'
     }
-    // ---
+    # ---
     colors = { # String keys
       'apple' => 'red',
       'grape' => 'purple'
@@ -459,7 +476,7 @@ Dictionaries
 
 ### Access
 
-    color[:banana]
+    color[:apple]
 
 ### Setting
 
@@ -482,6 +499,19 @@ Dictionaries
     colors.each do |key, val|
       # doc: http://www.ruby-doc.org/core-2.2.0/Hash.html#method-i-each
       # ...
+    end
+
+Exceptions
+----------
+
+### Try/catch
+
+    begin do
+      raise Error, 'hello'
+    rescue Error => e
+      puts "Caught error: #{e.message}"
+    ensure
+      puts "I'm after the clause"
     end
 
 Iterables

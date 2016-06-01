@@ -325,6 +325,7 @@ Conditionals
 
     if (a && b)
     if (c || d)
+    !e
 
 ### Ternary
 
@@ -332,6 +333,14 @@ Conditionals
 
 Numbers
 -------
+
+### Operations
+
+    1 + 1
+    10 - 5
+    5 * 2
+    11 / 2      #=> 5.5
+    11 % 2      #=> 1
 
 ### Rounding off
 
@@ -426,8 +435,8 @@ Dictionaries
 
 ### Access
 
-    colors['banana']
-    colors.banana
+    colors['apple']
+    colors.apple
 
 ### Setting
 
@@ -513,6 +522,19 @@ String representation
     obj.toString()
     '' + obj
     String(obj)
+
+Exceptions
+----------
+
+### Try/catch
+
+    try {
+      throw new Error('hello');
+    } catch (e) {
+      console.log(`Caught error: ${e.message}`);
+    } finally {
+      console.log("I'm after the clause");
+    }
 
 Iterables
 ---------

@@ -61,8 +61,9 @@ Destructuring
 
 ### Spreading
 
-    [ first | rest ] = list
-    first
+    [ head | tail ] = [1, 2, 3, 4]
+    head  #=> 1
+    tail  #=> [2, 3, 4]
 
 Types
 -----
@@ -124,6 +125,8 @@ Conditionals
       # ...
     end
 
+There's no `else if`. Use Conditions (`cond do`).
+
 ### Conditions
 
     cond do
@@ -135,12 +138,71 @@ Conditionals
         "default value"
     end
 
-This is the equivalent of if/else if clauses.
+This is the equivalent of `else if` clauses.
 
 ### Single-line syntax
 
     if true, do: 1 + 2
     if true, do: :this, else: :that
+
+### Equality
+
+    2 == 2     #=> true
+    2 == 2.0   #=> true
+    2 === 2.0  #=> false
+
+`===` is stricter when comparing integers and floats.
+
+### Switch-case
+
+    case day do
+      :Monday ->
+        work()
+      :Tuesday ->
+        train()
+      _ ->  # matches any value
+        sleep()
+    end
+
+Uses pattern-matching.
+
+### And-or
+
+    if a and b do
+    if c or d do
+    !e
+
+Numbers
+-------
+
+### Operations
+
+    1 + 1
+    10 - 5
+    5 * 2
+    11 / 2      #=> 5.5
+    div(11, 2)  #=> 5
+    rem(11, 2)  #=> 1
+
+Strings
+-------
+
+### Literals
+
+    "hola"  #=> <<?h, ?o, ?l, ?a>>
+    'hola'  #=> [?h, ?o, ?l, ?a]
+
+Double-quotes are for bitstrings (binary), single-quotes are for char lists.
+
+### Symbols
+
+    :hello
+
+They are called Atoms.
+
+### Concatenation
+
+    "Hello, " ++ name
 
 Dictionaries
 ------------
@@ -158,7 +220,18 @@ Dictionaries
 
 ### Access
 
-    colors['banana']
+    colors.apple
+
+Exceptions
+----------
+
+### Try/catch
+
+    try do
+      throw(:hello)
+    } catch (e) {
+      puts "Caught error: #{e.message}"
+    }
 
 Modules
 -------

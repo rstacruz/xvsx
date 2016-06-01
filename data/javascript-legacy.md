@@ -300,6 +300,7 @@ Conditionals
 
     if (a && b)
     if (c || d)
+    !e
 
 Numbers
 -------
@@ -394,8 +395,8 @@ Dictionaries
 
 ### Access
 
-    colors['banana']
-    colors.banana
+    colors['apple']
+    colors.apple
 
 ### Setting
 
@@ -449,6 +450,19 @@ String representation
     obj.toString()
     '' + obj
     String(obj)
+
+Exceptions
+----------
+
+### Try/catch
+
+    try {
+      throw new Error('hello');
+    } catch (e) {
+      console.log("Caught error: " + e.message);
+    } finally {
+      console.log("I'm after the clause");
+    }
 
 Iterables
 ---------
