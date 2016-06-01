@@ -10,7 +10,7 @@ Functions
 ### Defining functions
 
     function greet(hi, name) {
-      console.log(`#{hi}, ${name}`);
+      console.log(hi + ', ' + name);
     }
 
 ### Invoking
@@ -531,7 +531,7 @@ Exceptions
     try {
       throw new Error('hello');
     } catch (e) {
-      console.log(`Caught error: ${e.message}`);
+      console.log('Caught error: ' + e.message);
     } finally {
       console.log("I'm after the clause");
     }

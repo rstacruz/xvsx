@@ -316,6 +316,10 @@ Conditionals
     if (c || d)
     !e
 
+### Ternary
+
+    name == 'john' ? 'yes' : 'no'
+
 Numbers
 -------
 
@@ -481,7 +485,7 @@ Exceptions
     try {
       throw new Error('hello');
     } catch (e) {
-      console.log("Caught error: " + e.message);
+      console.log('Caught error: ' + e.message);
     } finally {
       console.log("I'm after the clause");
     }
